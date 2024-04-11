@@ -45,22 +45,23 @@ namespace RamenAndChopsticks.Services
             }
         }
 
-        public bool DataFilesCreated(List<string> dataFileList)
+        public void DataFilesCreated(List<string> dataFileList)
         {
-
             try
             {
                 foreach (var file in dataFileList)
                 {
-                    File.Create(file);
-
-                    return true;
+                    File.Create(file).Close();
                 }
-                return false;
+                return;
             }
             catch (NullReferenceException)
             {
                 throw new NullReferenceException();
+            }
+            catch (FormatException)
+            {
+                throw new FormatException();
             }
             catch (Exception)
             {
