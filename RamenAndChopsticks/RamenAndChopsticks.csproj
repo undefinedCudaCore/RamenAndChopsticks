@@ -8,6 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\FilePathData.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="Data\FilePathData.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\DataFiles\" />
     <Folder Include="Extensions\" />
     <Folder Include="Helpers\" />
   </ItemGroup>

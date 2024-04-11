@@ -8,13 +8,13 @@ namespace RamenAndChopsticks.Services
         public List<string> DataFileNames()
         {
             List<string> files = new List<string>();
-            files.Add(FilePathData.DrinksInfoPath);
-            files.Add(FilePathData.FoodInfoPath);
-            files.Add(FilePathData.CustomersInfoPath);
-            files.Add(FilePathData.OrderInfoPath);
-            files.Add(FilePathData.TableInfoPath);
-            files.Add(FilePathData.ReceiptInfoPath);
-            files.Add(FilePathData.StatisticsInfoPath);
+            files.Add(DataFilePath.DrinksInfoPath);
+            files.Add(DataFilePath.FoodInfoPath);
+            files.Add(DataFilePath.CustomersInfoPath);
+            files.Add(DataFilePath.OrderInfoPath);
+            files.Add(DataFilePath.TableInfoPath);
+            files.Add(DataFilePath.ReceiptInfoPath);
+            files.Add(DataFilePath.StatisticsInfoPath);
 
             return files;
         }
