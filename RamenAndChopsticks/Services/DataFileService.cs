@@ -1,22 +1,24 @@
 ﻿using RamenAndChopsticks.Contracts;
 using RamenAndChopsticks.Data;
+using RamenAndChopsticks.Models;
 
 namespace RamenAndChopsticks.Services
 {
-    internal class DataFileCheckAndCreateService : IDataFile
+    internal class DataFileService : IDataFile
     {
         public List<string> DataFileNames()
         {
-            List<string> files = new List<string>();
-            files.Add(DataFilePath.DrinksInfoPath);
-            files.Add(DataFilePath.FoodInfoPath);
-            files.Add(DataFilePath.CustomersInfoPath);
-            files.Add(DataFilePath.OrderInfoPath);
-            files.Add(DataFilePath.TableInfoPath);
-            files.Add(DataFilePath.ReceiptInfoPath);
-            files.Add(DataFilePath.StatisticsInfoPath);
+            DataFile dataFile = new DataFile();
 
-            return files;
+            dataFile.Files.Add(DataFilePath.DrinksInfoPath);
+            dataFile.Files.Add(DataFilePath.FoodInfoPath);
+            dataFile.Files.Add(DataFilePath.CustomersInfoPath);
+            dataFile.Files.Add(DataFilePath.OrderInfoPath);
+            dataFile.Files.Add(DataFilePath.TableInfoPath);
+            dataFile.Files.Add(DataFilePath.ReceiptInfoPath);
+            dataFile.Files.Add(DataFilePath.StatisticsInfoPath);
+
+            return dataFile.Files;
         }
 
         public List<string> CheckFilesExists(List<string> dataFileList)
