@@ -3,5 +3,6 @@
     public interface IShowContent
     {
         public void ShowGreating();
+        public void ShowChooseHumanOption();
     }
 }

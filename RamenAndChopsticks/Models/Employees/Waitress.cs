@@ -2,5 +2,6 @@
 {
     internal class Waitress : Employee
     {
+        public double WorkHours { get; set; }
     }
 }
