@@ -13,6 +13,7 @@ namespace RamenAndChopsticks.Services
             dataFile.Files.Add(DataFilePath.DrinksInfoPath);
             dataFile.Files.Add(DataFilePath.FoodInfoPath);
             dataFile.Files.Add(DataFilePath.CustomersInfoPath);
+            dataFile.Files.Add(DataFilePath.EmployeesInfoPath);
             dataFile.Files.Add(DataFilePath.OrderInfoPath);
             dataFile.Files.Add(DataFilePath.TableInfoPath);
             dataFile.Files.Add(DataFilePath.ReceiptInfoPath);

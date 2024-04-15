@@ -1,8 +1,9 @@
-﻿namespace RamenAndChopsticks.Models.Employees
+﻿namespace RamenAndChopsticks.Models
 {
     internal class Employee
     {
-        public int EmployeeId { get; set; }
+        public string EmployeeId { get; set; }
+        public string EmployeePasword { get; set; }
         public string EmployeeName { get; set; }
         public string EmployeeSurename { get; set; }
         public int EmployeeAge { get; set; }

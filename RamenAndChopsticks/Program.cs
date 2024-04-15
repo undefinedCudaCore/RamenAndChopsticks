@@ -1,4 +1,5 @@
 ﻿using RamenAndChopsticks.Contracts;
+using RamenAndChopsticks.Data;
 using RamenAndChopsticks.Services;
 
 namespace RamenAndChopsticks
@@ -23,11 +24,13 @@ namespace RamenAndChopsticks
             showContentService.ShowGreating();
 
             // Get the first user input (choose emplyee or customer);
-            showContentService.ShowChooseHumanOption();
+            showContentService.ShowChooseOption(DataContent.HumanOptionData.OptionOne,
+                DataContent.HumanOptionData.OptionTwo,
+                DataContent.HumanOptionData.OptionThree, "RED");
 
             var chooseHumanOption = Console.ReadLine();
             StepsService stepsService = new StepsService();
-            stepsService.ChooseHumanOptionStep(chooseHumanOption);
+            stepsService.ChooseHumanOptionStep(chooseHumanOption.ToLower());
         }
     }
 }

@@ -4,16 +4,34 @@ namespace RamenAndChopsticks.Services
 {
     internal class ShowContentService : IShowContent
     {
-        public void ShowChooseHumanOption()
+        public void ShowChooseOption(string optionOne, string optionTwo, string optionThree, string color)
         {
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine();
 
-            Console.ForegroundColor = ConsoleColor.Red;
+            switch (color.ToLower())
+            {
+                case "red":
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case "green":
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
+                case "yellow":
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    break;
+                case "gray":
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    break;
+            }
+
             Console.WriteLine("Type the choise and press ENTER:");
-            Console.WriteLine("\"1\" - Employee;");
-            Console.WriteLine("\"2\" - Customer;");
-            Console.WriteLine("\"3\" - Go to welcome page.");
+            Console.WriteLine(optionOne);
+            Console.WriteLine(optionTwo);
+            Console.WriteLine(optionThree);
             Console.ResetColor();
 
             Console.WriteLine();
