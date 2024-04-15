@@ -1,5 +1,6 @@
 ﻿using RamenAndChopsticks.Contracts;
 using RamenAndChopsticks.Data;
+using RamenAndChopsticks.Models;
 using RamenAndChopsticks.Services;
 
 namespace RamenAndChopsticks
@@ -13,6 +14,9 @@ namespace RamenAndChopsticks
             var dataFileNames = dataFileCheckAndCreateService.DataFileNames();
             dataFileCheckAndCreateService.CheckFilesExists(dataFileNames);
             dataFileCheckAndCreateService.DataFilesCreated(dataFileNames);
+
+            IEmployee employeeService = new EmployeeService();
+            employeeService.AddEmployee(new Employee("123", "123tadas321*", "Tadas", "Blinda", 25, "Male", "waitrun"));
 
             ChooseHuman();
         }
@@ -29,7 +33,7 @@ namespace RamenAndChopsticks
                 DataContent.HumanOptionData.OptionThree, "RED");
 
             var chooseHumanOption = Console.ReadLine();
-            StepsService stepsService = new StepsService();
+            ISteps stepsService = new StepsService();
             stepsService.ChooseHumanOptionStep(chooseHumanOption.ToLower());
         }
     }

@@ -1,12 +1,11 @@
 ﻿using Newtonsoft.Json;
-using RamenAndChopsticks.Contracts;
 
 namespace RamenAndChopsticks.Helpers
 {
-    internal class ReadFromFileService<T> : IReadFile<T> where T : class
+    internal static class ReadFromFileHelper<T>
     {
 
-        public Dictionary<string, T> ReadFromFile(string path)
+        internal static Dictionary<string, T> ReadFromFile(string path)
         {
             if (File.Exists(path))
             {

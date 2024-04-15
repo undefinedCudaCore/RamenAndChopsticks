@@ -2,8 +2,23 @@
 {
     internal class Employee
     {
-        public string EmployeeId { get; set; }
-        public string EmployeePasword { get; set; }
+        public Employee()
+        {
+        }
+
+        public Employee(string employeeId, string employeePasword, string employeeName, string employeeSurename, int employeeAge, string employeeGender, string employeeJobTitle)
+        {
+            EmployeeUsername = employeeId;
+            EmployeePassword = employeePasword;
+            EmployeeName = employeeName;
+            EmployeeSurename = employeeSurename;
+            EmployeeAge = employeeAge;
+            EmployeeGender = employeeGender;
+            EmployeeJobTitle = employeeJobTitle;
+        }
+
+        public string EmployeeUsername { get; set; }
+        public string EmployeePassword { get; set; }
         public string EmployeeName { get; set; }
         public string EmployeeSurename { get; set; }
         public int EmployeeAge { get; set; }

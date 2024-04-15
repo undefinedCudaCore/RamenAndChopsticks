@@ -50,5 +50,16 @@ namespace RamenAndChopsticks.Services
             Console.WriteLine();
             Console.WriteLine("--------------------------------------------------");
         }
+
+        public void ShowReturnToMainMenu(string errorNumber)
+        {
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------------");
+
+            Console.WriteLine($"Error '{errorNumber}'. Read more Https://ramenandchopstics.co.jp/errors/{errorNumber} . You will be redirected to main menu.");
+
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine();
+        }
     }
 }
