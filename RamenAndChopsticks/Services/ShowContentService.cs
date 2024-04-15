@@ -61,12 +61,19 @@ namespace RamenAndChopsticks.Services
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine();
         }
-        public void ShowReturnToMainMenu()
+        public void ShowReturnToMainMenu(string username, string password)
         {
             Console.WriteLine();
             Console.WriteLine("--------------------------------------------------");
 
-            Console.WriteLine($"You will be redirected to the main menu.");
+            string star = "";
+
+            for (int i = 0; i < password.Length; i++)
+            {
+                star += "*";
+            }
+
+            Console.WriteLine($"Wrong credentials: '{username}' or '{star}'.\nYou will be redirected to the main menu.");
 
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine();

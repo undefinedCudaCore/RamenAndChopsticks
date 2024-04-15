@@ -121,12 +121,14 @@ namespace RamenAndChopsticks.Services
                             //DO SOMETHING (main employee menu)
                             if (successfullyLoggedIn)
                             {
+                                Console.WriteLine("LOGGEDIN");
                                 //go to employees menu
                             }
                             else
                             {
-                                showContentService.ShowReturnToMainMenu();
-                                Thread.Sleep(3);
+                                showContentService.ShowReturnToMainMenu(username, password);
+                                Thread.Sleep(3000);
+                                Console.Clear();
 
                                 Program.ChooseHuman();
                             }
