@@ -13,7 +13,11 @@ namespace RamenAndChopsticks
             dataFileCheckAndCreateService.CheckFilesExists(dataFileNames);
             dataFileCheckAndCreateService.DataFilesCreated(dataFileNames);
 
-            //
+            //Print the welcome page; get the first user input;
+            IShowContent showContentService = new ShowContentService();
+            showContentService.ShowGreating();
+
+
         }
     }
 }
