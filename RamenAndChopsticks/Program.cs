@@ -13,6 +13,11 @@ namespace RamenAndChopsticks
             dataFileCheckAndCreateService.CheckFilesExists(dataFileNames);
             dataFileCheckAndCreateService.DataFilesCreated(dataFileNames);
 
+            ChooseHuman();
+        }
+
+        internal static void ChooseHuman()
+        {
             //Print the welcome page;
             IShowContent showContentService = new ShowContentService();
             showContentService.ShowGreating();
