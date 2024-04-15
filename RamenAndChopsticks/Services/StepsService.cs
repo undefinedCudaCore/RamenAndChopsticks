@@ -1,5 +1,6 @@
 ﻿using RamenAndChopsticks.Contracts;
 using RamenAndChopsticks.Data;
+using RamenAndChopsticks.Models;
 
 
 namespace RamenAndChopsticks.Services
@@ -40,7 +41,7 @@ namespace RamenAndChopsticks.Services
                 case "q":
                     Console.Clear();
 
-                    Program.Main();
+                    Environment.Exit(0);
                     break;
                 default:
                     Thread.Sleep(3);
@@ -61,6 +62,7 @@ namespace RamenAndChopsticks.Services
 
         public void ChooseTableOrReservationStep(string option)
         {
+            IEmployee employeeService = new EmployeeService();
             IShowContent showContentService = new ShowContentService();
             showContentService.ShowGreating();
 
@@ -72,21 +74,54 @@ namespace RamenAndChopsticks.Services
                     {
                         case "1":
                             Console.Clear();
+                            showContentService.ShowGreating();
 
-                            Console.WriteLine("Register a new employee.");
+                            Console.WriteLine("Enter username: ");
+                            string username = Console.ReadLine();
+
+                            Console.WriteLine("Enter password: ");
+                            string password = Console.ReadLine();
+
+                            Console.WriteLine("Enter name: ");
+                            string name = Console.ReadLine();
+
+                            Console.WriteLine("Enter surname: ");
+                            string surname = Console.ReadLine();
+
+                            Console.WriteLine("Enter age: ");
+                            bool bAge = int.TryParse(Console.ReadLine(), out int age);
+
+                            if (!bAge)
+                            {
+                                Console.WriteLine("Enter the wrong age, try one more time. If you enter the age incorrectly, the employee's age will be saved as \"0\".");
+                                bAge = int.TryParse(Console.ReadLine(), out age);
+                            }
+
+                            Console.WriteLine("Enter gender: ");
+                            string gender = Console.ReadLine();
+
+                            Console.WriteLine("Enter job title: ");
+                            string jobTitle = Console.ReadLine();
+
+                            employeeService.AddEmployee(new Employee(username, password, name, surname, age, gender, jobTitle));
                             break;
                         case "2":
                             Console.Clear();
+                            showContentService.ShowGreating();
 
                             Console.WriteLine("Choose a registered employee.");
                             break;
                         case "q":
                             Console.Clear();
+                            showContentService.ShowGreating();
+
                             Program.ChooseHuman();
                             break;
                         default:
                             Thread.Sleep(3);
                             Console.Clear();
+                            showContentService.ShowGreating();
+
                             Program.ChooseHuman();
                             break;
                     }
@@ -95,9 +130,6 @@ namespace RamenAndChopsticks.Services
                 {
                     Console.WriteLine("Something went wrong; contact your system administrator...");
                 }
-                //Console.WriteLine("You are an employee; you cannot make table reservations or pass to the table during your working hours.");
-                //Thread.Sleep(3);
-                //Program.ChooseHuman();
             }
             if (_choices[0] == "2")
             {

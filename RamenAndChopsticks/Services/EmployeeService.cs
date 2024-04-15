@@ -5,25 +5,44 @@ namespace RamenAndChopsticks.Services
 {
     internal class EmployeeService : IEmployee
     {
-        private readonly Dictionary<string, Employee> _employeeList = Helpers.ReadFromFileHelper<Employee>.ReadFromFile(Data.DataFilePath.EmployeesInfoPath);
         public Dictionary<string, Employee> AddEmployee(Employee newEmployee)
         {
-            foreach (var employee in _employeeList)
+            try
             {
-                if (employee.Value.EmployeeUsername == newEmployee.EmployeeUsername)
+                Dictionary<string, Employee> employeeList = Helpers.ReadFromFileHelper<Employee>.ReadFromFile(Data.DataFilePath.EmployeesInfoPath);
+
+                foreach (var employee in employeeList)
                 {
-                    IShowContent showContentService = new ShowContentService();
-                    showContentService.ShowReturnToMainMenu("5214");
-                    Thread.Sleep(3000);
+                    if (employee.Value.EmployeeUsername == newEmployee.EmployeeUsername)
+                    {
+                        IShowContent showContentService = new ShowContentService();
+                        showContentService.ShowReturnToMainMenu("5214");
+                        Thread.Sleep(3000);
+                        Console.Clear();
+                        Program.Main();
 
-                    return _employeeList;
+                        return employeeList;
+                    }
                 }
+                employeeList.Add(Helpers.RandomIdHelper.RandomIdGenerator(), newEmployee);
+
+                Helpers.WriteToFileHelper<Employee>.WriteToFile(employeeList, Data.DataFilePath.EmployeesInfoPath);
+
+                return employeeList;
+
             }
-            _employeeList.Add(Helpers.RandomIdHelper.RandomIdGenerator(), newEmployee);
-
-            Helpers.WriteToFileHelper<Employee>.WriteToFile(_employeeList, Data.DataFilePath.EmployeesInfoPath);
-
-            return _employeeList;
+            catch (NullReferenceException)
+            {
+                throw new NullReferenceException(Data.DataContent.ErrorsAndExceptions.NullReferenceException);
+            }
+            catch (FormatException)
+            {
+                throw new FormatException(Data.DataContent.ErrorsAndExceptions.FormatException);
+            }
+            catch (Exception)
+            {
+                throw new Exception(Data.DataContent.ErrorsAndExceptions.Exception);
+            }
         }
 
         public Dictionary<string, Employee> LoginEmployee(string id, string password)

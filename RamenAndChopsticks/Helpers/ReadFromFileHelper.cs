@@ -12,6 +12,12 @@ namespace RamenAndChopsticks.Helpers
                 try
                 {
                     var jsonData = JsonConvert.DeserializeObject<Dictionary<string, T>>(File.ReadAllText(path));
+
+                    if (jsonData == null)
+                    {
+                        jsonData = new Dictionary<string, T>();
+                    }
+
                     List<KeyValuePair<string, T>> myList = jsonData.ToList();
 
                     myList.Sort(

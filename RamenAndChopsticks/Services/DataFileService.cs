@@ -54,7 +54,10 @@ namespace RamenAndChopsticks.Services
             {
                 foreach (var file in dataFileList)
                 {
-                    File.Create(file).Close();
+                    if (!File.Exists(file))
+                    {
+                        File.Create(file).Close();
+                    }
                 }
                 return;
             }
