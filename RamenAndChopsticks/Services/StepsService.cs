@@ -104,12 +104,33 @@ namespace RamenAndChopsticks.Services
                             string jobTitle = Console.ReadLine();
 
                             employeeService.AddEmployee(new Employee(username, password, name, surname, age, gender, jobTitle));
+                            //DO SOMETHING (main employee menu)
                             break;
                         case "2":
                             Console.Clear();
                             showContentService.ShowGreating();
 
-                            Console.WriteLine("Choose a registered employee.");
+                            Console.WriteLine("Enter username: ");
+                            username = Console.ReadLine();
+
+                            Console.WriteLine("Enter password: ");
+                            password = Console.ReadLine();
+
+                            bool successfullyLoggedIn = employeeService.LoginEmployee(username, password);
+
+                            //DO SOMETHING (main employee menu)
+                            if (successfullyLoggedIn)
+                            {
+                                //go to employees menu
+                            }
+                            else
+                            {
+                                showContentService.ShowReturnToMainMenu();
+                                Thread.Sleep(3);
+
+                                Program.ChooseHuman();
+                            }
+                            //Console.WriteLine("Choose a registered employee.");
                             break;
                         case "q":
                             Console.Clear();

@@ -45,9 +45,19 @@ namespace RamenAndChopsticks.Services
             }
         }
 
-        public Dictionary<string, Employee> LoginEmployee(string id, string password)
+        public bool LoginEmployee(string username, string password)
         {
-            throw new NotImplementedException();
+            Dictionary<string, Employee> employeeList = Helpers.ReadFromFileHelper<Employee>.ReadFromFile(Data.DataFilePath.EmployeesInfoPath);
+
+            foreach (var employee in employeeList)
+            {
+
+                if (username == employee.Value.EmployeeUsername && password == employee.Value.EmployeePassword)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

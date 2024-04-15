@@ -61,5 +61,15 @@ namespace RamenAndChopsticks.Services
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine();
         }
+        public void ShowReturnToMainMenu()
+        {
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------------");
+
+            Console.WriteLine($"You will be redirected to the main menu.");
+
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine();
+        }
     }
 }
