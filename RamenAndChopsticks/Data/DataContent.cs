@@ -8,17 +8,27 @@
             internal static readonly string OptionTwo = "\"2\" - Customer;";
             internal static readonly string OptionThree = "\"Q\" - Exit.";
         }
+
         internal static class EmployeeOptionData
         {
             internal static readonly string OptionOne = "\"1\" - Register a new employee.";
             internal static readonly string OptionTwo = "\"2\" - Choose a registered employee.";
             internal static readonly string OptionThree = "\"Q\" - Go to previous page.";
         }
+
         internal static class CustomerOptionData
         {
             internal static readonly string OptionOne = "\"1\" - Pass to the table.";
             internal static readonly string OptionTwo = "\"2\" - Choose a registered employee.";
             internal static readonly string OptionThree = "\"Q\" - Go to previous page.";
+        }
+
+        internal static class EmployeeMenuData
+        {
+            internal static readonly string OptionOne = "\"1\" - Take an order from the customer.";
+            internal static readonly string OptionTwo = "\"2\" - Make a table reservation for the customer.";
+            internal static readonly string OptionThree = "\"3\" - Add food or drink.";
+            internal static readonly string OptionFour = "\"Q\" - Go to previous page.";
         }
 
         internal static class ErrorsAndExceptions

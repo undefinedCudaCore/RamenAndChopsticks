@@ -7,8 +7,9 @@ namespace RamenAndChopsticks.Services
 {
     internal class StepsService : ISteps
     {
-        private string _chooseTableOrReservationOption;
+        private string _chooseOption;
         private List<string> _choices = new List<string>();
+        internal static string _currentUser;
 
         public void ChooseHumanOptionStep(string option)
         {
@@ -24,8 +25,8 @@ namespace RamenAndChopsticks.Services
                         DataContent.EmployeeOptionData.OptionTwo,
                         DataContent.EmployeeOptionData.OptionThree, "green");
 
-                    _chooseTableOrReservationOption = Console.ReadLine();
-                    ChooseTableOrReservationStep(_chooseTableOrReservationOption.ToLower());
+                    _chooseOption = Console.ReadLine();
+                    ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
                     break;
                 case "2":
                     _choices.Add(option);
@@ -35,8 +36,8 @@ namespace RamenAndChopsticks.Services
                         DataContent.CustomerOptionData.OptionTwo,
                         DataContent.CustomerOptionData.OptionThree, "blue");
 
-                    _chooseTableOrReservationOption = Console.ReadLine();
-                    ChooseTableOrReservationStep(_chooseTableOrReservationOption.ToLower());
+                    _chooseOption = Console.ReadLine();
+                    ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
                     break;
                 case "q":
                     Console.Clear();
@@ -60,11 +61,13 @@ namespace RamenAndChopsticks.Services
             }
         }
 
-        public void ChooseTableOrReservationStep(string option)
+        public void ChooseEmployeeCreationOrLoginStep(string option)
         {
             IEmployee employeeService = new EmployeeService();
             IShowContent showContentService = new ShowContentService();
             showContentService.ShowGreating();
+
+            bool successfullyLoggedIn;
 
             if (_choices[0] == "1")
             {
@@ -105,6 +108,26 @@ namespace RamenAndChopsticks.Services
 
                             employeeService.AddEmployee(new Employee(username, password, name, surname, age, gender, jobTitle));
                             //DO SOMETHING (main employee menu)
+                            successfullyLoggedIn = employeeService.LoginEmployee(username, password);
+
+                            if (successfullyLoggedIn)
+                            {
+                                _currentUser = username;
+                                Console.Clear();
+                                //go to employees menu
+                                showContentService.ShowGreating();
+                                showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
+                                    DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
+                                ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
+                            }
+                            else
+                            {
+                                showContentService.ShowReturnToMainMenu(username, password);
+                                Thread.Sleep(3000);
+                                Console.Clear();
+
+                                Program.ChooseHuman();
+                            }
                             break;
                         case "2":
                             Console.Clear();
@@ -116,13 +139,18 @@ namespace RamenAndChopsticks.Services
                             Console.WriteLine("Enter password: ");
                             password = Console.ReadLine();
 
-                            bool successfullyLoggedIn = employeeService.LoginEmployee(username, password);
+                            successfullyLoggedIn = employeeService.LoginEmployee(username, password);
 
                             //DO SOMETHING (main employee menu)
                             if (successfullyLoggedIn)
                             {
-                                Console.WriteLine("LOGGEDIN");
+                                _currentUser = username;
+                                Console.Clear();
                                 //go to employees menu
+                                showContentService.ShowGreating();
+                                showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
+                                    DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
+                                ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
                             }
                             else
                             {
@@ -189,6 +217,70 @@ namespace RamenAndChopsticks.Services
                     Console.WriteLine("Something went wrong; contact your system administrator...");
                 }
             }
+        }
+        //public void ChooseTableOrReservationStep()
+        //{
+
+        //}
+        public void ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(string option)
+        {
+            IShowContent showContentService = new ShowContentService();
+
+            switch (option)
+            {
+                case "1":
+                    Console.Clear();
+                    showContentService.ShowGreating();
+                    showContentService.ShowChooseOption(DataContent.EmployeeOptionData.OptionOne,
+                        DataContent.EmployeeOptionData.OptionTwo,
+                        DataContent.EmployeeOptionData.OptionThree, "green");
+
+                    _chooseOption = Console.ReadLine();
+                    ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
+                    break;
+                case "2":
+                    Console.Clear();
+                    showContentService.ShowGreating();
+                    showContentService.ShowChooseOption(DataContent.CustomerOptionData.OptionOne,
+                        DataContent.CustomerOptionData.OptionTwo,
+                        DataContent.CustomerOptionData.OptionThree, "blue");
+
+                    ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
+                    break;
+                case "3":
+                    Console.Clear();
+                    showContentService.ShowGreating();
+                    showContentService.ShowChooseOption(DataContent.CustomerOptionData.OptionOne,
+                        DataContent.CustomerOptionData.OptionTwo,
+                        DataContent.CustomerOptionData.OptionThree, "default");
+
+                    _chooseOption = Console.ReadLine();
+                    ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
+                    break;
+                case "q":
+                    Console.Clear();
+                    showContentService.ShowGreating();
+                    showContentService.ShowChooseOption(DataContent.EmployeeOptionData.OptionOne,
+                        DataContent.EmployeeOptionData.OptionTwo,
+                        DataContent.EmployeeOptionData.OptionThree, "green");
+                    ChooseEmployeeCreationOrLoginStep(Console.ReadLine());
+                    break;
+                default:
+                    Thread.Sleep(3);
+                    Console.Clear();
+
+                    Program.Main();
+                    break;
+            }
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Something went wrong; contact your system administrator...");
+            }
+
         }
     }
 }
