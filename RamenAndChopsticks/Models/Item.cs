@@ -13,12 +13,12 @@
             UnitOfMeasurement = unitOfMeasurement;
         }
 
-        internal int ItemId { get; set; }
-        internal double ItemQty { get; set; }
-        internal double ItemPriceWithoutVat { get; set; }
-        internal double ItemPriceWithVat { get; set; }
-        internal string ItemName { get; set; }
-        internal string ItemDescription { get; set; }
-        internal string UnitOfMeasurement { get; set; }
+        public int ItemId { get; set; }
+        public double ItemQty { get; set; }
+        public double ItemPriceWithoutVat { get; set; }
+        public double ItemPriceWithVat { get; set; }
+        public string ItemName { get; set; }
+        public string ItemDescription { get; set; }
+        public string UnitOfMeasurement { get; set; }
     }
 }

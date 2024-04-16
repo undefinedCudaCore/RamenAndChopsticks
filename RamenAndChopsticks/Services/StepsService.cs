@@ -63,6 +63,7 @@ namespace RamenAndChopsticks.Services
 
         public void ChooseEmployeeCreationOrLoginStep(string option)
         {
+            Dictionary<string, Table> tableList = Helpers.ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
             IEmployee employeeService = new EmployeeService();
             IShowContent showContentService = new ShowContentService();
             showContentService.ShowGreating();
@@ -118,7 +119,7 @@ namespace RamenAndChopsticks.Services
                                 showContentService.ShowGreating();
                                 showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
                                     DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, DataContent.EmployeeMenuData.OptionFive, "green");
-                                ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
+                                ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), tableList);
                             }
                             else
                             {
@@ -151,7 +152,7 @@ namespace RamenAndChopsticks.Services
                                 showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
                                     DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree,
                                     DataContent.EmployeeMenuData.OptionFour, DataContent.EmployeeMenuData.OptionFive, "green");
-                                ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
+                                ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), tableList);
                             }
                             else
                             {
@@ -220,17 +221,18 @@ namespace RamenAndChopsticks.Services
             }
         }
 
-        public void ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(string option)
+        public void ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(string option, Dictionary<string, Table> tabels)
         {
             IShowContent showContentService = new ShowContentService();
             ITable tableServise = new TableService();
+            Dictionary<string, Table> tabelList = Helpers.ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
 
             switch (option)
             {
                 case "1":
                     Console.Clear();
                     showContentService.ShowGreating();
-                    showContentService.PrintTalbeList();
+                    showContentService.PrintTalbeList(tabels);
 
                     Console.WriteLine("Type the table number and press ENTER:");
                     string tableNumber = Console.ReadLine();
@@ -252,6 +254,7 @@ namespace RamenAndChopsticks.Services
                 case "2":
                     Console.Clear();
                     showContentService.ShowGreating();
+                    showContentService.PrintTalbeList(tabels);
 
                     Console.WriteLine("Type the table number and press ENTER:");
                     tableNumber = Console.ReadLine();
@@ -273,6 +276,7 @@ namespace RamenAndChopsticks.Services
                 case "3":
                     Console.Clear();
                     showContentService.ShowGreating();
+                    showContentService.PrintTalbeList(tabels);
 
                     Console.WriteLine("Type the table number to free up the table and press ENTER:");
                     tableNumber = Console.ReadLine();
@@ -289,7 +293,7 @@ namespace RamenAndChopsticks.Services
                         showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
                             DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree,
                             DataContent.EmployeeMenuData.OptionFour, DataContent.EmployeeMenuData.OptionFive, "green");
-                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
+                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), tabelList);
                     }
 
                     if (!successfullyFreedUp)
@@ -302,7 +306,7 @@ namespace RamenAndChopsticks.Services
                         showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
                             DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree,
                             DataContent.EmployeeMenuData.OptionFour, DataContent.EmployeeMenuData.OptionFive, "green");
-                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
+                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), tabelList);
                     }
                     break;
                 case "4":

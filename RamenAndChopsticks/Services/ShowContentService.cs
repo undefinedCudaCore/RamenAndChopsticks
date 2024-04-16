@@ -1,5 +1,4 @@
 ﻿using RamenAndChopsticks.Contracts;
-using RamenAndChopsticks.Data;
 using RamenAndChopsticks.Models;
 
 namespace RamenAndChopsticks.Services
@@ -152,9 +151,9 @@ namespace RamenAndChopsticks.Services
             Console.WriteLine();
         }
 
-        public void PrintTalbeList()
+        public void PrintTalbeList(Dictionary<string, Table> tableList)
         {
-            Dictionary<string, Table> tableList = Helpers.ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
+            //Dictionary<string, Table> tableList = Helpers.ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
             string yes = "YES";
             string no = "NO";
             string noCustomer = "Here you will see the customers's name.";

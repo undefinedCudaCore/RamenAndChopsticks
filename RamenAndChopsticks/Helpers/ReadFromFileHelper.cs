@@ -29,7 +29,7 @@ namespace RamenAndChopsticks.Helpers
                     //    }
                     //);
 
-                    return myList.ToDictionary();
+                    return /*myList.ToDictionary()*/ jsonData;
                 }
                 catch (DirectoryNotFoundException)
                 {

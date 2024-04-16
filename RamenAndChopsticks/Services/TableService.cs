@@ -7,7 +7,7 @@ namespace RamenAndChopsticks.Services
 {
     internal class TableService : ITable
     {
-        private Dictionary<string, Table> _tables = ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
+        Dictionary<string, Table> _tables = ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
         private readonly int _tableSpaces = 4;
         private readonly int _maxTables = 20;
 
@@ -48,7 +48,7 @@ namespace RamenAndChopsticks.Services
                         DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
 
                     Console.WriteLine("Choose another table. The table is busy or reserved.");
-                    stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
+                    stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), _tables);
                     break;
                 }
 
@@ -64,7 +64,7 @@ namespace RamenAndChopsticks.Services
                         //go to employees menu
                         showContent.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
                             DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
-                        stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
+                        stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), _tables);
                     }
                     item.Value.TableIsBusy = true;
                     item.Value.TableCurrentEmployee = currentEmployee;
@@ -101,7 +101,7 @@ namespace RamenAndChopsticks.Services
                         DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
 
                     Console.WriteLine("Choose another table. The table is busy or reserved.");
-                    stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
+                    stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), _tables);
                     break;
                 }
 
@@ -117,7 +117,7 @@ namespace RamenAndChopsticks.Services
                         //go to employees menu
                         showContent.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
                             DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
-                        stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
+                        stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), _tables);
                     }
                     item.Value.TableIsReserved = true;
                     item.Value.TableCurrentEmployee = currentEmployee;

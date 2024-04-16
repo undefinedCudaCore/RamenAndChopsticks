@@ -14,6 +14,10 @@ namespace RamenAndChopsticks
             dataFileCheckAndCreateService.CheckFilesExists(dataFileNames);
             dataFileCheckAndCreateService.DataFilesCreated(dataFileNames);
 
+            IItem itemService = new ItemService();
+            //itemService.AddDrink(new Models.Item(1, 5, 5, 7, "Cola", "Not good", "Litres"));
+            //itemService.AddFood(new Models.Item(1, 5, 5, 7, "Cola", "Not good", "Litres"));
+            itemService.RemoveFood(1);
             //TableService tableService = new TableService();
             //tableService.GetTable("1", "tad", "tom", 3);
             //IEmployee employeeService = new EmployeeService();

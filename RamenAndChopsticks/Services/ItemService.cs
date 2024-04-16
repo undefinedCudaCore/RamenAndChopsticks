@@ -14,7 +14,7 @@ namespace RamenAndChopsticks.Services
             {
                 DrinksList.Add(Helpers.RandomIdHelper.RandomIdGenerator(), newDrink);
 
-                Helpers.WriteToFileHelper<Item>.WriteToFile(DrinksList, Data.DataFilePath.EmployeesInfoPath);
+                Helpers.WriteToFileHelper<Item>.WriteToFile(DrinksList, Data.DataFilePath.DrinksInfoPath);
 
                 return DrinksList;
 
@@ -33,13 +33,25 @@ namespace RamenAndChopsticks.Services
             }
         }
 
+        public Dictionary<string, Item> RemoveDrink(int drinkId)
+        {
+            foreach (var item in DrinksList.Where(kvp => kvp.Value.ItemId == drinkId).ToList())
+            {
+                DrinksList.Remove(item.Key);
+            }
+
+            Helpers.WriteToFileHelper<Item>.WriteToFile(DrinksList, Data.DataFilePath.DrinksInfoPath);
+
+            return DrinksList;
+        }
+
         public Dictionary<string, Item> AddFood(Item newFood)
         {
             try
             {
                 FoodList.Add(Helpers.RandomIdHelper.RandomIdGenerator(), newFood);
 
-                Helpers.WriteToFileHelper<Item>.WriteToFile(FoodList, Data.DataFilePath.EmployeesInfoPath);
+                Helpers.WriteToFileHelper<Item>.WriteToFile(FoodList, Data.DataFilePath.FoodInfoPath);
 
                 return FoodList;
 
@@ -57,5 +69,18 @@ namespace RamenAndChopsticks.Services
                 throw new Exception(Data.DataContent.ErrorsAndExceptions.Exception);
             }
         }
+
+        public Dictionary<string, Item> RemoveFood(int foodId)
+        {
+            foreach (var item in FoodList.Where(kvp => kvp.Value.ItemId == foodId).ToList())
+            {
+                FoodList.Remove(item.Key);
+            }
+
+            Helpers.WriteToFileHelper<Item>.WriteToFile(FoodList, Data.DataFilePath.FoodInfoPath);
+
+            return FoodList;
+        }
+
     }
 }
