@@ -8,5 +8,6 @@
         public void ShowChooseOption(string optionOne, string optionTwo, string optionThree, string optionFour, string optionFive, string color);
         public void ShowReturnToMainMenu(string errorNumber);
         public void ShowReturnToMainMenu(string username, string password);
+        public void PrintTalbeList();
     }
 }

@@ -1,19 +1,19 @@
 {
   "5du4VX2B": {
     "TableNumber": "1",
-    "TableCurrentCustomer": "",
-    "TableCurrentEmployee": "",
-    "TableIableFreeSpacesLeft": 4,
-    "TableIsBusy": false,
+    "TableCurrentCustomer": "Tad",
+    "TableCurrentEmployee": "222",
+    "TableIableFreeSpacesLeft": 1,
+    "TableIsBusy": true,
     "TableIsReserved": false
   },
   "zo509tiZ": {
     "TableNumber": "2",
-    "TableCurrentCustomer": "",
-    "TableCurrentEmployee": "",
-    "TableIableFreeSpacesLeft": 4,
+    "TableCurrentCustomer": "pad",
+    "TableCurrentEmployee": "222",
+    "TableIableFreeSpacesLeft": 3,
     "TableIsBusy": false,
-    "TableIsReserved": false
+    "TableIsReserved": true
   },
   "Cz81dBYz": {
     "TableNumber": "3",

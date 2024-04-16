@@ -219,10 +219,7 @@ namespace RamenAndChopsticks.Services
                 }
             }
         }
-        //public void ChooseTableOrReservationStep()
-        //{
 
-        //}
         public void ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(string option)
         {
             IShowContent showContentService = new ShowContentService();
@@ -233,6 +230,7 @@ namespace RamenAndChopsticks.Services
                 case "1":
                     Console.Clear();
                     showContentService.ShowGreating();
+                    showContentService.PrintTalbeList();
 
                     Console.WriteLine("Type the table number and press ENTER:");
                     string tableNumber = Console.ReadLine();

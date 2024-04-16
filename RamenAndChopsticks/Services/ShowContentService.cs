@@ -1,4 +1,6 @@
 ﻿using RamenAndChopsticks.Contracts;
+using RamenAndChopsticks.Data;
+using RamenAndChopsticks.Models;
 
 namespace RamenAndChopsticks.Services
 {
@@ -148,6 +150,31 @@ namespace RamenAndChopsticks.Services
 
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine();
+        }
+
+        public void PrintTalbeList()
+        {
+            Dictionary<string, Table> tableList = Helpers.ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
+            string yes = "YES";
+            string no = "NO";
+            string noCustomer = "Here you will see the customers's name.";
+            string noEmployee = "Here you will see the employee's name.";
+
+            foreach (var table in tableList.Values)
+            {
+                Console.WriteLine();
+                Console.WriteLine("--------------------------------------------------");
+
+                Console.WriteLine($"Table number: {table.TableNumber}.");
+                Console.WriteLine($"Used by customer: {((String.IsNullOrEmpty(table.TableCurrentCustomer)) ? noCustomer : table.TableCurrentCustomer)}.");
+                Console.WriteLine($"Served by employye: {((String.IsNullOrEmpty(table.TableCurrentEmployee)) ? noEmployee : table.TableCurrentEmployee)}.");
+                Console.WriteLine($"Free spaces: {table.TableIableFreeSpacesLeft}.");
+                Console.WriteLine($"Is table busy: {((table.TableIsBusy == true) ? yes : no)}.");
+                Console.WriteLine($"Is table reserved: {((table.TableIsReserved == true) ? yes : no)}.");
+
+                Console.WriteLine("--------------------------------------------------");
+                Console.WriteLine();
+            }
         }
     }
 }
