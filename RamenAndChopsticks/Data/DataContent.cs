@@ -34,6 +34,7 @@
         internal static class ErrorsAndExceptions
         {
             internal static readonly string Exception = "Fatal error, contact your system administrator..";
+            internal static readonly string ExceptionSomethingWrong = "Something went wrong; contact your system administrator...";
             internal static readonly string NullReferenceException = "A null value is given.";
             internal static readonly string FormatException = "Bad format value given.";
 

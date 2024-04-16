@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RamenAndChopsticks.Models
+﻿namespace RamenAndChopsticks.Models
 {
     internal class Table
     {
+        internal string TableNumber { get; set; }
+        internal string TableCurrentUser { get; set; }
+        internal int TableITableSpaces { get; set; }
+        internal bool TableIsBusy { get; set; }
     }
 }

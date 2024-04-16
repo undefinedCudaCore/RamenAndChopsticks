@@ -57,7 +57,7 @@ namespace RamenAndChopsticks.Services
             }
             catch (Exception)
             {
-                Console.WriteLine("Something went wrong; contact your system administrator...");
+                Console.WriteLine(DataContent.ErrorsAndExceptions.ExceptionSomethingWrong);
             }
         }
 
@@ -179,7 +179,7 @@ namespace RamenAndChopsticks.Services
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Something went wrong; contact your system administrator...");
+                    Console.WriteLine(DataContent.ErrorsAndExceptions.ExceptionSomethingWrong);
                 }
             }
             if (_choices[0] == "2")
@@ -214,7 +214,7 @@ namespace RamenAndChopsticks.Services
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Something went wrong; contact your system administrator...");
+                    Console.WriteLine(DataContent.ErrorsAndExceptions.ExceptionSomethingWrong);
                 }
             }
         }
@@ -231,31 +231,32 @@ namespace RamenAndChopsticks.Services
                 case "1":
                     Console.Clear();
                     showContentService.ShowGreating();
-                    showContentService.ShowChooseOption(DataContent.EmployeeOptionData.OptionOne,
-                        DataContent.EmployeeOptionData.OptionTwo,
-                        DataContent.EmployeeOptionData.OptionThree, "green");
+                    //showContentService.ShowChooseOption(DataContent.EmployeeOptionData.OptionOne,
+                    //    DataContent.EmployeeOptionData.OptionTwo,
+                    //    DataContent.EmployeeOptionData.OptionThree, "green");
 
-                    _chooseOption = Console.ReadLine();
-                    ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
+                    //_chooseOption = Console.ReadLine();
+                    //ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
                     break;
                 case "2":
                     Console.Clear();
                     showContentService.ShowGreating();
-                    showContentService.ShowChooseOption(DataContent.CustomerOptionData.OptionOne,
-                        DataContent.CustomerOptionData.OptionTwo,
-                        DataContent.CustomerOptionData.OptionThree, "blue");
+                    //showContentService.ShowChooseOption(DataContent.CustomerOptionData.OptionOne,
+                    //    DataContent.CustomerOptionData.OptionTwo,
+                    //    DataContent.CustomerOptionData.OptionThree, "blue");
 
-                    ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
+                    //_chooseOption = Console.ReadLine();
+                    //ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
                     break;
                 case "3":
                     Console.Clear();
                     showContentService.ShowGreating();
-                    showContentService.ShowChooseOption(DataContent.CustomerOptionData.OptionOne,
-                        DataContent.CustomerOptionData.OptionTwo,
-                        DataContent.CustomerOptionData.OptionThree, "default");
+                    //showContentService.ShowChooseOption(DataContent.CustomerOptionData.OptionOne,
+                    //    DataContent.CustomerOptionData.OptionTwo,
+                    //    DataContent.CustomerOptionData.OptionThree, "default");
 
-                    _chooseOption = Console.ReadLine();
-                    ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
+                    //_chooseOption = Console.ReadLine();
+                    //ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
                     break;
                 case "q":
                     Console.Clear();
@@ -278,7 +279,7 @@ namespace RamenAndChopsticks.Services
             }
             catch (Exception)
             {
-                Console.WriteLine("Something went wrong; contact your system administrator...");
+                Console.WriteLine(DataContent.ErrorsAndExceptions.ExceptionSomethingWrong);
             }
 
         }
