@@ -20,13 +20,14 @@ namespace RamenAndChopsticks.Helpers
 
                     List<KeyValuePair<string, T>> myList = jsonData.ToList();
 
-                    myList.Sort(
-                        delegate (KeyValuePair<string, T> pair1,
-                        KeyValuePair<string, T> pair2)
-                        {
-                            return pair1.Value.GetHashCode().CompareTo(pair2.Value.GetHashCode());
-                        }
-                    );
+
+                    //myList.Sort(
+                    //    delegate (KeyValuePair<string, T> pair1,
+                    //    KeyValuePair<string, T> pair2)
+                    //    {
+                    //        return pair1.Value.GetHashCode().CompareTo(pair2.Value.GetHashCode());
+                    //    }
+                    //);
 
                     return myList.ToDictionary();
                 }

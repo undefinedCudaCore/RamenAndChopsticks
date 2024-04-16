@@ -14,8 +14,8 @@ namespace RamenAndChopsticks
             dataFileCheckAndCreateService.CheckFilesExists(dataFileNames);
             dataFileCheckAndCreateService.DataFilesCreated(dataFileNames);
 
-            TableService tableService = new TableService();
-            tableService.CreateTableListIfFileIsEmpty(20, 5);
+            //TableService tableService = new TableService();
+            //tableService.GetTable("1", "tad", "tom", 3);
             //IEmployee employeeService = new EmployeeService();
             //employeeService.AddEmployee(new Employee("7777", "123tadas321*", "Tadas", "Blinda", 25, "Male", "waitrun"));
 
