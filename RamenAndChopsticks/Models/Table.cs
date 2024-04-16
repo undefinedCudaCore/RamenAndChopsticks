@@ -2,9 +2,19 @@
 {
     internal class Table
     {
-        internal string TableNumber { get; set; }
-        internal string TableCurrentUser { get; set; }
-        internal int TableITableSpaces { get; set; }
-        internal bool TableIsBusy { get; set; }
+        public Table(string tableNumber, string tableCurrentCustomer, int tableITableSpaces, bool tableIsBusy, bool tableIsReserved)
+        {
+            TableNumber = tableNumber;
+            TableCurrentCustomer = tableCurrentCustomer;
+            TableITableSpaces = tableITableSpaces;
+            TableIsBusy = tableIsBusy;
+            TableIsReserved = tableIsReserved;
+        }
+
+        public string TableNumber { get; set; }
+        public string TableCurrentCustomer { get; set; }
+        public int TableITableSpaces { get; set; }
+        public bool TableIsBusy { get; set; }
+        public bool TableIsReserved { get; set; }
     }
 }
