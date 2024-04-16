@@ -73,6 +73,42 @@ namespace RamenAndChopsticks.Services
             Console.WriteLine("--------------------------------------------------");
         }
 
+        public void ShowChooseOption(string optionOne, string optionTwo, string optionThree, string optionFour, string optionFive, string color)
+        {
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine();
+
+            switch (color.ToLower())
+            {
+                case "red":
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case "green":
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
+                case "yellow":
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    break;
+                case "gray":
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    break;
+            }
+
+            Console.WriteLine("Type the choise and press ENTER:");
+            Console.WriteLine(optionOne);
+            Console.WriteLine(optionTwo);
+            Console.WriteLine(optionThree);
+            Console.WriteLine(optionFour);
+            Console.WriteLine(optionFive);
+            Console.ResetColor();
+
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------------");
+        }
+
         public void ShowGreating()
         {
             Console.WriteLine("--------------------------------------------------");

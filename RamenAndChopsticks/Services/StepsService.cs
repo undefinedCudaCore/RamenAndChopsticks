@@ -117,7 +117,7 @@ namespace RamenAndChopsticks.Services
                                 //go to employees menu
                                 showContentService.ShowGreating();
                                 showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                                    DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
+                                    DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, DataContent.EmployeeMenuData.OptionFive, "green");
                                 ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
                             }
                             else
@@ -149,7 +149,8 @@ namespace RamenAndChopsticks.Services
                                 //go to employees menu
                                 showContentService.ShowGreating();
                                 showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                                    DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
+                                    DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree,
+                                    DataContent.EmployeeMenuData.OptionFour, DataContent.EmployeeMenuData.OptionFive, "green");
                                 ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
                             }
                             else
@@ -274,12 +275,43 @@ namespace RamenAndChopsticks.Services
                 case "3":
                     Console.Clear();
                     showContentService.ShowGreating();
-                    //showContentService.ShowChooseOption(DataContent.CustomerOptionData.OptionOne,
-                    //    DataContent.CustomerOptionData.OptionTwo,
-                    //    DataContent.CustomerOptionData.OptionThree, "default");
 
-                    //_chooseOption = Console.ReadLine();
-                    //ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
+                    Console.WriteLine("Type the table number to free up the table and press ENTER:");
+                    tableNumber = Console.ReadLine();
+
+                    tableServise.FreeUpTable(tableNumber, out bool successfullyFreedUp);
+
+                    if (successfullyFreedUp)
+                    {
+                        Console.WriteLine("The table is free now.");
+                        Thread.Sleep(3000);
+
+                        Console.Clear();
+                        showContentService.ShowGreating();
+                        showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
+                            DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree,
+                            DataContent.EmployeeMenuData.OptionFour, DataContent.EmployeeMenuData.OptionFive, "green");
+                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
+                    }
+
+                    if (!successfullyFreedUp)
+                    {
+                        Console.WriteLine("The table is free now.");
+                        Thread.Sleep(3000);
+
+                        Console.Clear();
+                        showContentService.ShowGreating();
+                        showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
+                            DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree,
+                            DataContent.EmployeeMenuData.OptionFour, DataContent.EmployeeMenuData.OptionFive, "green");
+                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
+                    }
+                    break;
+                case "4":
+                    Console.Clear();
+                    showContentService.ShowGreating();
+                    //Add food or drink
+
                     break;
                 case "q":
                     Console.Clear();

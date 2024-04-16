@@ -27,8 +27,9 @@
         {
             internal static readonly string OptionOne = "\"1\" - Take an order from the customer.";
             internal static readonly string OptionTwo = "\"2\" - Make a table reservation for the customer.";
-            internal static readonly string OptionThree = "\"3\" - Add food or drink.";
-            internal static readonly string OptionFour = "\"Q\" - Go to previous page.";
+            internal static readonly string OptionThree = "\"3\" - Free up table.";
+            internal static readonly string OptionFour = "\"4\" - Add food or drink.";
+            internal static readonly string OptionFive = "\"Q\" - Go to previous page.";
         }
 
         internal static class ErrorsAndExceptions

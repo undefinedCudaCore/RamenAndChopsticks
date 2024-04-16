@@ -131,8 +131,10 @@ namespace RamenAndChopsticks.Services
             return _tables;
         }
 
-        public Dictionary<string, Table> FreeUpTable(string tableId)
+        public Dictionary<string, Table> FreeUpTable(string tableId, out bool successfullyFreedUp)
         {
+            successfullyFreedUp = false;
+
             foreach (var item in _tables)
             {
                 if (item.Value.TableNumber == tableId)
@@ -142,13 +144,13 @@ namespace RamenAndChopsticks.Services
                     item.Value.TableIableFreeSpacesLeft = _tableSpaces;
                     item.Value.TableCurrentCustomer = "";
                     item.Value.TableCurrentEmployee = "";
+
+                    successfullyFreedUp = true;
                 }
             }
-
             Helpers.WriteToFileHelper<Table>.WriteToFile(_tables, DataFilePath.TableInfoPath);
 
             return _tables;
         }
-
     }
 }
