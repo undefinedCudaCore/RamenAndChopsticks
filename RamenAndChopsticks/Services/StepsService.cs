@@ -225,28 +225,51 @@ namespace RamenAndChopsticks.Services
         public void ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(string option)
         {
             IShowContent showContentService = new ShowContentService();
+            ITable tableServise = new TableService();
 
             switch (option)
             {
                 case "1":
                     Console.Clear();
                     showContentService.ShowGreating();
-                    //showContentService.ShowChooseOption(DataContent.EmployeeOptionData.OptionOne,
-                    //    DataContent.EmployeeOptionData.OptionTwo,
-                    //    DataContent.EmployeeOptionData.OptionThree, "green");
 
-                    //_chooseOption = Console.ReadLine();
-                    //ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
+                    Console.WriteLine("Type the table number and press ENTER:");
+                    string tableNumber = Console.ReadLine();
+
+                    Console.WriteLine("Type the customer's name and press ENTER:");
+                    string customerName = Console.ReadLine();
+
+                    Console.WriteLine("Type the customer quantity and press ENTER:");
+                    bool bCustomeQty = int.TryParse(Console.ReadLine(), out int customerQty);
+
+                    if (!bCustomeQty)
+                    {
+                        Console.WriteLine("Enter the wrong age, try one more time. If you enter the age incorrectly, the employee's age will be saved as \"0\".");
+                        bCustomeQty = int.TryParse(Console.ReadLine(), out customerQty);
+                    }
+
+                    tableServise.GetTable(tableNumber, customerName, _currentUser, customerQty);
                     break;
                 case "2":
                     Console.Clear();
                     showContentService.ShowGreating();
-                    //showContentService.ShowChooseOption(DataContent.CustomerOptionData.OptionOne,
-                    //    DataContent.CustomerOptionData.OptionTwo,
-                    //    DataContent.CustomerOptionData.OptionThree, "blue");
 
-                    //_chooseOption = Console.ReadLine();
-                    //ChooseEmployeeCreationOrLoginStep(_chooseOption.ToLower());
+                    Console.WriteLine("Type the table number and press ENTER:");
+                    tableNumber = Console.ReadLine();
+
+                    Console.WriteLine("Type the customer's name and press ENTER:");
+                    customerName = Console.ReadLine();
+
+                    Console.WriteLine("Type the customer quantity and press ENTER:");
+                    bCustomeQty = int.TryParse(Console.ReadLine(), out customerQty);
+
+                    if (!bCustomeQty)
+                    {
+                        Console.WriteLine("Enter the wrong age, try one more time. If you enter the age incorrectly, the employee's age will be saved as \"0\".");
+                        bCustomeQty = int.TryParse(Console.ReadLine(), out customerQty);
+                    }
+
+                    tableServise.ReserveTable(tableNumber, customerName, _currentUser, customerQty);
                     break;
                 case "3":
                     Console.Clear();

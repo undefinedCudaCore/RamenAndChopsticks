@@ -37,7 +37,22 @@ namespace RamenAndChopsticks.Services
             //Pass to the table
             foreach (var item in _tables)
             {
-                if (item.Value.TableNumber == tableId && item.Value.TableIsBusy == false && item.Value.TableIsReserved == false)
+                if (item.Value.TableNumber == tableId && item.Value.TableIsBusy == true || item.Value.TableNumber == tableId && item.Value.TableIsReserved == true)
+                {
+                    Console.Clear();
+                    showContent.ShowGreating();
+
+
+                    //go to employees menu
+                    showContent.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
+                        DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
+
+                    Console.WriteLine("Choose another table. The table is busy or reserved.");
+                    stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
+                    break;
+                }
+
+                if (item.Value.TableNumber == tableId && item.Value.TableIsBusy == false || item.Value.TableNumber == tableId && item.Value.TableIsReserved == false)
                 {
                     if (item.Value.TableIableFreeSpacesLeft < customerQty)
                     {
@@ -50,27 +65,14 @@ namespace RamenAndChopsticks.Services
                         showContent.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
                             DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
                         stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
-                        break;
                     }
                     item.Value.TableIsBusy = true;
                     item.Value.TableCurrentEmployee = currentEmployee;
                     item.Value.TableCurrentCustomer = currentCustomer;
                     item.Value.TableIableFreeSpacesLeft = item.Value.TableIableFreeSpacesLeft - customerQty;
                 }
-                else
-                {
-                    Console.Clear();
-                    showContent.ShowGreating();
-
-                    Console.WriteLine("Choose another table. The table is busy or reserved.");
-
-                    //go to employees menu
-                    showContent.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                        DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
-                    stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
-                    break;
-                }
             }
+
 
             Helpers.WriteToFileHelper<Table>.WriteToFile(_tables, DataFilePath.TableInfoPath);
 
@@ -88,7 +90,22 @@ namespace RamenAndChopsticks.Services
             //Pass to the table
             foreach (var item in _tables)
             {
-                if (item.Value.TableNumber == tableId && item.Value.TableIsBusy == false && item.Value.TableIsReserved == false)
+                if (item.Value.TableNumber == tableId && item.Value.TableIsBusy == true || item.Value.TableNumber == tableId && item.Value.TableIsReserved == true)
+                {
+                    Console.Clear();
+                    showContent.ShowGreating();
+
+
+                    //go to employees menu
+                    showContent.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
+                        DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
+
+                    Console.WriteLine("Choose another table. The table is busy or reserved.");
+                    stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
+                    break;
+                }
+
+                if (item.Value.TableNumber == tableId && item.Value.TableIsBusy == false || item.Value.TableNumber == tableId && item.Value.TableIsReserved == false)
                 {
                     if (item.Value.TableIableFreeSpacesLeft < customerQty)
                     {
@@ -101,25 +118,11 @@ namespace RamenAndChopsticks.Services
                         showContent.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
                             DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
                         stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
-                        break;
                     }
                     item.Value.TableIsReserved = true;
                     item.Value.TableCurrentEmployee = currentEmployee;
                     item.Value.TableCurrentCustomer = currentCustomer;
                     item.Value.TableIableFreeSpacesLeft = item.Value.TableIableFreeSpacesLeft - customerQty;
-                }
-                else
-                {
-                    Console.Clear();
-                    showContent.ShowGreating();
-
-                    Console.WriteLine("Choose another table. The table is busy or reserved.");
-
-                    //go to employees menu
-                    showContent.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                        DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
-                    stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine());
-                    break;
                 }
             }
 
