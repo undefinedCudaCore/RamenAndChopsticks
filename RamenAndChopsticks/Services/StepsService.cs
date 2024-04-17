@@ -229,6 +229,7 @@ namespace RamenAndChopsticks.Services
         {
             IShowContent showContentService = new ShowContentService();
             ITable tableServise = new TableService();
+            IOrder orderService = new OrderService();
 
             switch (option)
             {
@@ -256,8 +257,9 @@ namespace RamenAndChopsticks.Services
                     tableServise.GetTable(tableNumber, customerName, _currentUser, customerQty);
                     //Add print menu
                     Helpers.MenuPrintAndAddSelectionHelper.MenuPrintAndAddSelection(out string selectedDrink, out string selectedFood);
+                    Order newOrder = orderService.CreateOrder(selectedDrink, selectedFood);
 
-
+                    orderService.StartOrder(newOrder);
                     break;
                 case "2":
                     Console.Clear();
