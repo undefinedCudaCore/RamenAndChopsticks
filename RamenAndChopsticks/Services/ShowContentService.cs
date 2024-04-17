@@ -195,5 +195,44 @@ namespace RamenAndChopsticks.Services
                 Console.WriteLine();
             }
         }
+
+        public void PrintItemMenuList(Dictionary<string, Item> drinksList, Dictionary<string, Item> FoodList)
+        {
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("Restaurant MENU");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine();
+
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("Drinks:");
+
+            foreach (var drink in drinksList.Values)
+            {
+                Console.WriteLine($"ID: {drink.ItemId}.");
+                Console.WriteLine($"Name: {drink.ItemName}.");
+                Console.WriteLine($"Description: {drink.ItemDescription}.");
+                Console.WriteLine($"Price with VAT: {drink.ItemPriceWithVat} €.");
+            }
+
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine();
+
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("Food:");
+
+            foreach (var food in FoodList.Values)
+            {
+                Console.WriteLine($"ID: {food.ItemId}.");
+                Console.WriteLine($"Name: {food.ItemName}.");
+                Console.WriteLine($"Description: {food.ItemDescription}.");
+                Console.WriteLine($"Price with VAT: {food.ItemPriceWithVat} €.");
+            }
+
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine();
+        }
     }
 }

@@ -1,10 +1,10 @@
 {
   "5du4VX2B": {
     "TableNumber": "1",
-    "TableCurrentCustomer": "",
-    "TableCurrentEmployee": "",
-    "TableIableFreeSpacesLeft": 4,
-    "TableIsBusy": false,
+    "TableCurrentCustomer": "Tadas Blinda",
+    "TableCurrentEmployee": "222",
+    "TableIableFreeSpacesLeft": 0,
+    "TableIsBusy": true,
     "TableIsReserved": false
   },
   "zo509tiZ": {

@@ -10,8 +10,10 @@ namespace RamenAndChopsticks.Services
         private string _chooseOption;
         private List<string> _choices = new List<string>();
         internal static string _currentUser;
+        internal static string _currentTable;
         private Dictionary<string, Table> TabelList = Helpers.ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
-
+        private Dictionary<string, Item> DrinksList = Helpers.ReadFromFileHelper<Item>.ReadFromFile(DataFilePath.DrinksInfoPath);
+        private Dictionary<string, Item> FoodList = Helpers.ReadFromFileHelper<Item>.ReadFromFile(DataFilePath.FoodInfoPath);
 
         public void ChooseHumanOptionStep(string option)
         {
@@ -238,7 +240,7 @@ namespace RamenAndChopsticks.Services
                     Console.WriteLine("Type the table number and press ENTER:");
                     string tableNumber = Console.ReadLine();
 
-                    Console.WriteLine("Type the customer's name and press ENTER:");
+                    Console.WriteLine("Type the customer's name and surename then press ENTER:");
                     string customerName = Console.ReadLine();
 
                     Console.WriteLine("Type the customer quantity and press ENTER:");
@@ -250,7 +252,12 @@ namespace RamenAndChopsticks.Services
                         bCustomeQty = int.TryParse(Console.ReadLine(), out customerQty);
                     }
 
+                    _currentTable = tableNumber;
                     tableServise.GetTable(tableNumber, customerName, _currentUser, customerQty);
+                    //Add print menu
+                    Helpers.MenuPrintAndAddSelectionHelper.MenuPrintAndAddSelection(out string selectedDrink, out string selectedFood);
+
+
                     break;
                 case "2":
                     Console.Clear();
@@ -357,8 +364,6 @@ namespace RamenAndChopsticks.Services
         {
             IShowContent showContentService = new ShowContentService();
             IItem itemService = new ItemService();
-            Dictionary<string, Item> DrinksList = Helpers.ReadFromFileHelper<Item>.ReadFromFile(DataFilePath.DrinksInfoPath);
-            Dictionary<string, Item> FoodList = Helpers.ReadFromFileHelper<Item>.ReadFromFile(DataFilePath.FoodInfoPath);
 
             switch (option)
             {
