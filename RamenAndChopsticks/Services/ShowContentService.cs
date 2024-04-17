@@ -228,7 +228,7 @@ namespace RamenAndChopsticks.Services
             foreach (var food in FoodList.Values)
             {
                 Console.WriteLine();
-                Console.Write($"ID: {food.ItemId}. ";
+                Console.Write($"ID: {food.ItemId}. ");
                 Console.Write($"Name: {food.ItemName}. ");
                 Console.Write($"Description: {food.ItemDescription}. ");
                 Console.Write($"Price with VAT: {food.ItemPriceWithVat} €. ");
