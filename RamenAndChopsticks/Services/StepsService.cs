@@ -10,6 +10,8 @@ namespace RamenAndChopsticks.Services
         private string _chooseOption;
         private List<string> _choices = new List<string>();
         internal static string _currentUser;
+        private Dictionary<string, Table> TabelList = Helpers.ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
+
 
         public void ChooseHumanOptionStep(string option)
         {
@@ -57,7 +59,7 @@ namespace RamenAndChopsticks.Services
             }
             catch (Exception)
             {
-                Console.WriteLine(DataContent.ErrorsAndExceptions.ExceptionSomethingWrong);
+                Console.WriteLine(DataContent.ErrorsAndExceptionsData.ExceptionSomethingWrong);
             }
         }
 
@@ -181,7 +183,7 @@ namespace RamenAndChopsticks.Services
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine(DataContent.ErrorsAndExceptions.ExceptionSomethingWrong);
+                    Console.WriteLine(DataContent.ErrorsAndExceptionsData.ExceptionSomethingWrong);
                 }
             }
             if (_choices[0] == "2")
@@ -216,7 +218,7 @@ namespace RamenAndChopsticks.Services
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine(DataContent.ErrorsAndExceptions.ExceptionSomethingWrong);
+                    Console.WriteLine(DataContent.ErrorsAndExceptionsData.ExceptionSomethingWrong);
                 }
             }
         }
@@ -225,7 +227,6 @@ namespace RamenAndChopsticks.Services
         {
             IShowContent showContentService = new ShowContentService();
             ITable tableServise = new TableService();
-            Dictionary<string, Table> tabelList = Helpers.ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
 
             switch (option)
             {
@@ -291,9 +292,11 @@ namespace RamenAndChopsticks.Services
                         Console.Clear();
                         showContentService.ShowGreating();
                         showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                            DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree,
-                            DataContent.EmployeeMenuData.OptionFour, DataContent.EmployeeMenuData.OptionFive, "green");
-                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), tabelList);
+                            DataContent.EmployeeMenuData.OptionTwo,
+                            DataContent.EmployeeMenuData.OptionThree,
+                            DataContent.EmployeeMenuData.OptionFour,
+                            DataContent.EmployeeMenuData.OptionFive, "green");
+                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), TabelList);
                     }
 
                     if (!successfullyFreedUp)
@@ -304,16 +307,25 @@ namespace RamenAndChopsticks.Services
                         Console.Clear();
                         showContentService.ShowGreating();
                         showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                            DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree,
-                            DataContent.EmployeeMenuData.OptionFour, DataContent.EmployeeMenuData.OptionFive, "green");
-                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), tabelList);
+                            DataContent.EmployeeMenuData.OptionTwo,
+                            DataContent.EmployeeMenuData.OptionThree,
+                            DataContent.EmployeeMenuData.OptionFour,
+                            DataContent.EmployeeMenuData.OptionFive, "green");
+                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), TabelList);
                     }
                     break;
                 case "4":
                     Console.Clear();
                     showContentService.ShowGreating();
                     //Add food or drink
+                    showContentService.ShowChooseOption(DataContent.FoodMenuData.OptionOne,
+                        DataContent.FoodMenuData.OptionTwo,
+                        DataContent.FoodMenuData.OptionThree,
+                        DataContent.FoodMenuData.OptionFour,
+                        DataContent.FoodMenuData.OptionFive, "green");
 
+                    var addRemoveDrinkOrFood = Console.ReadLine();
+                    ChooseHAddOrRemoveItemStep(addRemoveDrinkOrFood);
                     break;
                 case "q":
                     Console.Clear();
@@ -336,9 +348,148 @@ namespace RamenAndChopsticks.Services
             }
             catch (Exception)
             {
-                Console.WriteLine(DataContent.ErrorsAndExceptions.ExceptionSomethingWrong);
+                Console.WriteLine(DataContent.ErrorsAndExceptionsData.ExceptionSomethingWrong);
             }
 
+        }
+
+        public void ChooseHAddOrRemoveItemStep(string option)
+        {
+            IShowContent showContentService = new ShowContentService();
+            IItem itemService = new ItemService();
+            Dictionary<string, Item> DrinksList = Helpers.ReadFromFileHelper<Item>.ReadFromFile(DataFilePath.DrinksInfoPath);
+            Dictionary<string, Item> FoodList = Helpers.ReadFromFileHelper<Item>.ReadFromFile(DataFilePath.FoodInfoPath);
+
+            switch (option)
+            {
+                case "1":
+                    Console.Clear();
+                    showContentService.ShowGreating();
+
+                    Console.WriteLine("Type an item name and press ENTER:");
+                    string nameOfItem = Console.ReadLine();
+
+                    Console.WriteLine("Type an item description and press ENTER:");
+                    string descriptionOfItem = Console.ReadLine();
+
+                    Console.WriteLine("Type an item unit of measurement and press ENTER:");
+                    string unitOfMeasurementOfItem = Console.ReadLine();
+
+                    Console.WriteLine("Type an item quantity and press ENTER:");
+                    double QtyOfItem = double.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Type an item price without VAT and press ENTER:");
+                    double PriceWithoutVatOfItem = double.Parse(Console.ReadLine());
+
+                    if (!Double.IsNaN(QtyOfItem) && !Double.IsNaN(PriceWithoutVatOfItem))
+                    {
+                        Item itemToAdd = new Item(Helpers.RandomIdHelper.RandomIdGenerator(), nameOfItem, descriptionOfItem, unitOfMeasurementOfItem, QtyOfItem, PriceWithoutVatOfItem);
+                        itemService.AddDrink(itemToAdd);
+                    }
+                    else
+                    {
+                        Console.WriteLine(DataContent.RedirectorsData.WrongInputOperationFailedRedirectPreviousPage);
+                        Thread.Sleep(3000);
+
+                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+                    }
+
+                    Console.WriteLine(DataContent.RedirectorsData.AddRedirectPreviousPage);
+                    Thread.Sleep(3000);
+
+                    ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+                    break;
+                case "2":
+                    Console.Clear();
+                    showContentService.ShowGreating();
+                    showContentService.PrintItemList(DrinksList);
+
+                    Console.WriteLine("Type item ID to erase item and press ENTER:");
+                    string itemIdToEraseItemFromList = Console.ReadLine();
+                    itemService.RemoveDrink(itemIdToEraseItemFromList);
+
+                    Console.WriteLine(DataContent.RedirectorsData.EraseRedirectPreviousPage);
+                    Thread.Sleep(3000);
+
+                    ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+                    break;
+                case "3":
+                    Console.Clear();
+                    showContentService.ShowGreating();
+
+                    Console.WriteLine("Type an item name and press ENTER:");
+                    nameOfItem = Console.ReadLine();
+
+                    Console.WriteLine("Type an item description and press ENTER:");
+                    descriptionOfItem = Console.ReadLine();
+
+                    Console.WriteLine("Type an item unit of measurement and press ENTER:");
+                    unitOfMeasurementOfItem = Console.ReadLine();
+
+                    Console.WriteLine("Type an item quantity and press ENTER:");
+                    QtyOfItem = double.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Type an item price without VAT and press ENTER:");
+                    PriceWithoutVatOfItem = double.Parse(Console.ReadLine());
+
+                    if (!Double.IsNaN(QtyOfItem) && !Double.IsNaN(PriceWithoutVatOfItem))
+                    {
+                        Item itemToAdd = new Item(Helpers.RandomIdHelper.RandomIdGenerator(), nameOfItem, descriptionOfItem, unitOfMeasurementOfItem, QtyOfItem, PriceWithoutVatOfItem);
+                        itemService.AddFood(itemToAdd);
+                    }
+                    else
+                    {
+                        Console.WriteLine(DataContent.RedirectorsData.WrongInputOperationFailedRedirectPreviousPage);
+                        Thread.Sleep(3000);
+
+                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+                    }
+
+                    Console.WriteLine(DataContent.RedirectorsData.AddRedirectPreviousPage);
+                    Thread.Sleep(3000);
+
+                    ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+                    showContentService.ShowGreating();
+
+                    Console.WriteLine(DataContent.RedirectorsData.AddRedirectPreviousPage);
+                    Thread.Sleep(3000);
+
+                    ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+                    break;
+                case "4":
+                    Console.Clear();
+                    showContentService.ShowGreating();
+                    showContentService.PrintItemList(FoodList);
+
+                    Console.WriteLine("Type item ID to erase item and press ENTER:");
+                    itemIdToEraseItemFromList = Console.ReadLine();
+                    itemService.RemoveFood(itemIdToEraseItemFromList);
+
+                    Console.WriteLine(DataContent.RedirectorsData.EraseRedirectPreviousPage);
+                    Thread.Sleep(3000);
+
+                    ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+                    break;
+                case "q":
+                    Console.Clear();
+
+                    ChooseEmployeeCreationOrLoginStep("2");
+                    break;
+                default:
+                    Thread.Sleep(3);
+                    Console.Clear();
+
+                    Program.Main();
+                    break;
+            }
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine(DataContent.ErrorsAndExceptionsData.ExceptionSomethingWrong);
+            }
         }
     }
 }

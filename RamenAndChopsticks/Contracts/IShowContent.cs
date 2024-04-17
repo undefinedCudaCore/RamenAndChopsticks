@@ -11,5 +11,6 @@ namespace RamenAndChopsticks.Contracts
         public void ShowReturnToMainMenu(string errorNumber);
         public void ShowReturnToMainMenu(string username, string password);
         internal void PrintTalbeList(Dictionary<string, Table> tableList);
+        internal void PrintItemList(Dictionary<string, Item> itemList);
     }
 }

@@ -33,15 +33,15 @@ namespace RamenAndChopsticks.Services
             }
             catch (NullReferenceException)
             {
-                throw new NullReferenceException(Data.DataContent.ErrorsAndExceptions.NullReferenceException);
+                throw new NullReferenceException(Data.DataContent.ErrorsAndExceptionsData.NullReferenceException);
             }
             catch (FormatException)
             {
-                throw new FormatException(Data.DataContent.ErrorsAndExceptions.FormatException);
+                throw new FormatException(Data.DataContent.ErrorsAndExceptionsData.FormatException);
             }
             catch (Exception)
             {
-                throw new Exception(Data.DataContent.ErrorsAndExceptions.Exception);
+                throw new Exception(Data.DataContent.ErrorsAndExceptionsData.Exception);
             }
         }
 

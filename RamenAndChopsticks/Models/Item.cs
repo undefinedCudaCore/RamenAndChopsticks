@@ -2,23 +2,23 @@
 {
     internal class Item
     {
-        public Item(int itemId, double itemQty, double itemPriceWithoutVat, double itemPriceWithVat, string itemName, string itemDescription, string unitOfMeasurement)
+        public Item(string itemId, string itemName, string itemDescription, string unitOfMeasurement, double itemQty, double itemPriceWithoutVat)
         {
             ItemId = itemId;
-            ItemQty = itemQty;
-            ItemPriceWithoutVat = itemPriceWithoutVat;
-            ItemPriceWithVat = itemPriceWithVat;
             ItemName = itemName;
+            ItemQty = itemQty;
             ItemDescription = itemDescription;
-            UnitOfMeasurement = unitOfMeasurement;
+            ItemUnitOfMeasurement = unitOfMeasurement;
+            ItemPriceWithoutVat = Math.Round(itemPriceWithoutVat, 2);
+            ItemPriceWithVat = Math.Round(itemPriceWithoutVat * 1.21, 2);
         }
 
-        public int ItemId { get; set; }
+        public string ItemId { get; set; }
+        public string ItemName { get; set; }
         public double ItemQty { get; set; }
+        public string ItemDescription { get; set; }
+        public string ItemUnitOfMeasurement { get; set; }
         public double ItemPriceWithoutVat { get; set; }
         public double ItemPriceWithVat { get; set; }
-        public string ItemName { get; set; }
-        public string ItemDescription { get; set; }
-        public string UnitOfMeasurement { get; set; }
     }
 }

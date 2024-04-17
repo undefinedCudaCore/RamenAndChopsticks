@@ -175,5 +175,25 @@ namespace RamenAndChopsticks.Services
                 Console.WriteLine();
             }
         }
+
+        public void PrintItemList(Dictionary<string, Item> itemList)
+        {
+            foreach (var item in itemList.Values)
+            {
+                Console.WriteLine();
+                Console.WriteLine("--------------------------------------------------");
+
+                Console.WriteLine($"Item ID: {item.ItemId}.");
+                Console.WriteLine($"Item Name: {item.ItemName}.");
+                Console.WriteLine($"Item Description: {item.ItemDescription}.");
+                Console.WriteLine($"Item unit of measurement: {item.ItemUnitOfMeasurement}.");
+                Console.WriteLine($"Item quantity: {item.ItemQty}.");
+                Console.WriteLine($"Item price without VAT: {item.ItemPriceWithoutVat} €.");
+                Console.WriteLine($"Item price with VAT: {item.ItemPriceWithVat} €.");
+
+                Console.WriteLine("--------------------------------------------------");
+                Console.WriteLine();
+            }
+        }
     }
 }
