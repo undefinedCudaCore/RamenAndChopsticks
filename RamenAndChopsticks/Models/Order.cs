@@ -2,10 +2,11 @@
 {
     internal class Order
     {
-
-        public Order(string orderTableId, int orderTableUsedSpaces, string orderDrinkId, double orderDrinkPriceWithVat,
-            string orderFoodId, double orderFoodPriceWithVat, double orderTotalPrice, DateTime orderStartDateTime)
+        public Order(string orderId, string orderTableId, int orderTableUsedSpaces, string orderDrinkId,
+            double orderDrinkPriceWithVat, string orderFoodId, double orderFoodPriceWithVat,
+            double orderTotalPrice, DateTime orderStartDateTime)
         {
+            OrderId = orderId;
             OrderTableId = orderTableId;
             OrderTableUsedSpaces = orderTableUsedSpaces;
             OrderDrinkId = orderDrinkId;
@@ -16,6 +17,7 @@
             OrderStartDateTime = orderStartDateTime;
         }
 
+        public string OrderId { get; set; }
         public string OrderTableId { get; set; }
         public int OrderTableUsedSpaces { get; set; }
         public string OrderDrinkId { get; set; }
