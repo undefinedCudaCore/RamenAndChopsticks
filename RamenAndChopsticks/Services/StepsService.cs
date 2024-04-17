@@ -228,7 +228,7 @@ namespace RamenAndChopsticks.Services
         public void ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(string option, Dictionary<string, Table> tabels)
         {
             IShowContent showContentService = new ShowContentService();
-            ITable tableServise = new TableService();
+            ITable tableService = new TableService();
             IOrder orderService = new OrderService();
 
             switch (option)
@@ -254,7 +254,7 @@ namespace RamenAndChopsticks.Services
                     }
 
                     _currentTable = tableNumber;
-                    tableServise.GetTable(tableNumber, customerName, _currentUser, customerQty);
+                    tableService.GetTable(tableNumber, customerName, _currentUser, customerQty);
                     //Add print menu
                     Helpers.MenuPrintAndAddSelectionHelper.MenuPrintAndAddSelection(out string selectedDrink, out string selectedFood);
                     Order newOrder = orderService.CreateOrder(selectedDrink, selectedFood);
@@ -281,7 +281,7 @@ namespace RamenAndChopsticks.Services
                         bCustomeQty = int.TryParse(Console.ReadLine(), out customerQty);
                     }
 
-                    tableServise.ReserveTable(tableNumber, customerName, _currentUser, customerQty);
+                    tableService.ReserveTable(tableNumber, customerName, _currentUser, customerQty);
                     break;
                 case "3":
                     Console.Clear();
@@ -291,7 +291,7 @@ namespace RamenAndChopsticks.Services
                     Console.WriteLine("Type the table number to free up the table and press ENTER:");
                     tableNumber = Console.ReadLine();
 
-                    tableServise.FreeUpTable(tableNumber, out bool successfullyFreedUp);
+                    tableService.FreeUpTable(tableNumber, out bool successfullyFreedUp);
 
                     if (successfullyFreedUp)
                     {

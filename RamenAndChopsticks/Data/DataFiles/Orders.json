@@ -1,0 +1,15 @@
+{
+  "ZKzxOmSl": {
+    "OrderId": "cen1649R",
+    "OrderTableId": "2",
+    "OrderPersonnelWhoServedId": "222",
+    "OrderTableUsedSpaces": 1,
+    "OrderDrinkId": "hT6wg2MJ",
+    "OrderDrinkPriceWithVat": 2.42,
+    "OrderFoodId": "m940pwa7",
+    "OrderFoodPriceWithVat": 12.09,
+    "OrderTotalPrice": 14.51,
+    "OrderStartDateTime": "2024-04-17T21:40:41.1841502+03:00",
+    "OrderEndDateTime": "0001-01-01T00:00:00"
+  }
+}

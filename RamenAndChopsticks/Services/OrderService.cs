@@ -8,7 +8,6 @@ namespace RamenAndChopsticks.Services
     internal class OrderService : IOrder
     {
         private Dictionary<string, Order> OrdersList = ReadFromFileHelper<Order>.ReadFromFile(DataFilePath.OrdersInfoPath);
-        private Dictionary<string, Table> TablesList = ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
         private Dictionary<string, Item> DrinksList = ReadFromFileHelper<Item>.ReadFromFile(DataFilePath.DrinksInfoPath);
         private Dictionary<string, Item> FoodList = ReadFromFileHelper<Item>.ReadFromFile(DataFilePath.FoodInfoPath);
 
@@ -64,6 +63,8 @@ namespace RamenAndChopsticks.Services
             double orderTotalPrice = 0;
             DateTime orderStartDateTime = DateTime.Now;
 
+            Dictionary<string, Table> TablesList = ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
+
             foreach (var table in TablesList.Values)
             {
                 if (table.TableNumber == orderTableId)
@@ -82,7 +83,7 @@ namespace RamenAndChopsticks.Services
 
             foreach (var food in FoodList.Values)
             {
-                if (food.ItemId == orderDrinkId)
+                if (food.ItemId == orderFoodId)
                 {
                     orderFoodPriceWithVat = food.ItemPriceWithVat;
                 }
