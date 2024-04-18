@@ -16,7 +16,7 @@ namespace RamenAndChopsticks.Services
             dataFile.Files.Add(DataFilePath.EmployeesInfoPath);
             dataFile.Files.Add(DataFilePath.OrdersInfoPath);
             dataFile.Files.Add(DataFilePath.TableInfoPath);
-            dataFile.Files.Add(DataFilePath.ReceiptInfoPath);
+            //dataFile.Files.Add(DataFilePath.ReceiptInfoPath);
             dataFile.Files.Add(DataFilePath.StatisticsInfoPath);
 
             return dataFile.Files;
@@ -48,10 +48,20 @@ namespace RamenAndChopsticks.Services
             }
         }
 
-        public void DataFilesCreated(List<string> dataFileList)
+        public void CreateDataFiles(List<string> dataFileList)
         {
             try
             {
+                if (!Directory.Exists(DataFilePath.DirectoryDataFiles))
+                {
+                    Directory.CreateDirectory(DataFilePath.DirectoryDataFiles);
+                }
+
+                if (!Directory.Exists(DataFilePath.DirectoryReceipts))
+                {
+                    Directory.CreateDirectory(DataFilePath.DirectoryReceipts);
+                }
+
                 foreach (var file in dataFileList)
                 {
                     if (!File.Exists(file))

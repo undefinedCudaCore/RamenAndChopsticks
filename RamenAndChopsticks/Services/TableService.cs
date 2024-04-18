@@ -8,8 +8,8 @@ namespace RamenAndChopsticks.Services
     internal class TableService : ITable
     {
         Dictionary<string, Table> _tables = ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
-        private readonly int _tableSpaces = 4;
-        private readonly int _maxTables = 20;
+        internal static readonly int _maxTables = 20;
+        internal static readonly int _tableSpaces = 4;
 
         public Dictionary<string, Table> CreateTableListIfFileIsEmpty(int tableQty, int tableSpaceQty)
         {

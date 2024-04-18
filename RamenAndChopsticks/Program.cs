@@ -12,16 +12,11 @@ namespace RamenAndChopsticks
             IDataFile dataFileCheckAndCreateService = new DataFileService();
             var dataFileNames = dataFileCheckAndCreateService.DataFileNames();
             dataFileCheckAndCreateService.CheckFilesExists(dataFileNames);
-            dataFileCheckAndCreateService.DataFilesCreated(dataFileNames);
+            dataFileCheckAndCreateService.CreateDataFiles(dataFileNames);
 
-            //IItem itemService = new ItemService();
-            //itemService.AddDrink(new Models.Item(1, 5, 5, 7, "Cola", "Not good", "Litres"));
-            //itemService.AddFood(new Models.Item(1, 5, 5, 7, "Cola", "Not good", "Litres"));
-            //itemService.RemoveFood(1);
-            //TableService tableService = new TableService();
-            //tableService.GetTable("1", "tad", "tom", 3);
-            //IEmployee employeeService = new EmployeeService();
-            //employeeService.AddEmployee(new Employee("7777", "123tadas321*", "Tadas", "Blinda", 25, "Male", "waitrun"));
+            //Check and create the necessary data.
+            ITable tableService = new TableService();
+            tableService.CreateTableListIfFileIsEmpty(TableService._maxTables, TableService._tableSpaces);
 
             ChooseHuman();
         }

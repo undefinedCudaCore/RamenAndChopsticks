@@ -198,6 +198,8 @@ namespace RamenAndChopsticks.Services
 
         public void PrintItemMenuList(Dictionary<string, Item> drinksList, Dictionary<string, Item> FoodList)
         {
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+
             Console.WriteLine();
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine("Restaurant MENU");
@@ -215,6 +217,7 @@ namespace RamenAndChopsticks.Services
                 Console.Write($"Name: {drink.ItemName}. ");
                 Console.Write($"Description: {drink.ItemDescription}. ");
                 Console.Write($"Price with VAT: {drink.ItemPriceWithVat} €. ");
+                Console.WriteLine();
                 Console.WriteLine("--------------------------------------------------");
             }
 
@@ -232,6 +235,7 @@ namespace RamenAndChopsticks.Services
                 Console.Write($"Name: {food.ItemName}. ");
                 Console.Write($"Description: {food.ItemDescription}. ");
                 Console.Write($"Price with VAT: {food.ItemPriceWithVat} €. ");
+                Console.WriteLine();
                 Console.WriteLine("--------------------------------------------------");
             }
 

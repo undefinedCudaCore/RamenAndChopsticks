@@ -11,6 +11,7 @@ namespace RamenAndChopsticks.Services
         private List<string> _choices = new List<string>();
         internal static string _currentUser;
         internal static string _currentTable;
+        internal static string _currentOrder;
         private Dictionary<string, Table> TabelList = Helpers.ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
         private Dictionary<string, Item> DrinksList = Helpers.ReadFromFileHelper<Item>.ReadFromFile(DataFilePath.DrinksInfoPath);
         private Dictionary<string, Item> FoodList = Helpers.ReadFromFileHelper<Item>.ReadFromFile(DataFilePath.FoodInfoPath);
@@ -230,6 +231,7 @@ namespace RamenAndChopsticks.Services
             IShowContent showContentService = new ShowContentService();
             ITable tableService = new TableService();
             IOrder orderService = new OrderService();
+            IReceipt receiptService = new ReceiptService();
 
             switch (option)
             {
@@ -258,8 +260,12 @@ namespace RamenAndChopsticks.Services
                     //Add print menu
                     Helpers.MenuPrintAndAddSelectionHelper.MenuPrintAndAddSelection(out string selectedDrink, out string selectedFood);
                     Order newOrder = orderService.CreateOrder(selectedDrink, selectedFood);
+                    _currentOrder = newOrder.OrderId;
 
                     orderService.StartOrder(newOrder);
+
+                    Receipt newReceipt = receiptService.CreateReceipt(Helpers.RandomIdHelper.RandomIdGenerator());
+                    receiptService.WriteInTheFileReceipt(newReceipt);
                     break;
                 case "2":
                     Console.Clear();
@@ -280,7 +286,6 @@ namespace RamenAndChopsticks.Services
                         Console.WriteLine("Enter the wrong age, try one more time. If you enter the age incorrectly, the employee's age will be saved as \"0\".");
                         bCustomeQty = int.TryParse(Console.ReadLine(), out customerQty);
                     }
-
                     tableService.ReserveTable(tableNumber, customerName, _currentUser, customerQty);
                     break;
                 case "3":
