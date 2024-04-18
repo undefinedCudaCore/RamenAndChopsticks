@@ -11,6 +11,7 @@
             ItemUnitOfMeasurement = unitOfMeasurement;
             ItemPriceWithoutVat = Math.Round(itemPriceWithoutVat, 2);
             ItemPriceWithVat = Math.Round(itemPriceWithoutVat * 1.21, 2);
+            ItemCreationDateTime = DateTime.Now.ToString("yyyy_MM_dd HH:mm:ss");
         }
 
         public string ItemId { get; set; }
@@ -20,5 +21,6 @@
         public string ItemUnitOfMeasurement { get; set; }
         public double ItemPriceWithoutVat { get; set; }
         public double ItemPriceWithVat { get; set; }
+        public string ItemCreationDateTime { get; set; }
     }
 }

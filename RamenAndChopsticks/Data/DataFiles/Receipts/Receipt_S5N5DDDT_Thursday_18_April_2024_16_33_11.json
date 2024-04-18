@@ -1,0 +1,26 @@
+{
+  "JIWYrm2q": {
+    "ReceiptId": "S5N5DDDT",
+    "ReceiptRestorantName": "Ramen and CHOPSTICKS",
+    "ReceiptAddress": "62 Thomas Street, New York, NY",
+    "ReceiptDate": "Thursday_18_April_2024_16_33_11",
+    "ReceiptTableId": "20",
+    "ReceiptTableSpacesUsed": 1,
+    "ReceiptOrderId": "JbhUdHUe",
+    "ReceiptGuestName": "Elephant Tegrees",
+    "ReceiptEmployeeId": "222",
+    "ReceiptEmployeeJobTitle": "Waitrun",
+    "ReceiptEmployeeName": "Ad Suren",
+    "ReceiptDrinkId": "JBNneG3y",
+    "ReceiptDrinkName": "Sprite",
+    "ReceiptDrinkPriceWithoutVat": 1.0,
+    "ReceiptDrinkPriceWithVat": 1.21,
+    "ReceiptFoodId": "m940pwa7",
+    "ReceiptFoodName": "Burger",
+    "ReceiptFoodPriceWithoutVat": 9.99,
+    "ReceiptFoodPriceWithVat": 12.09,
+    "ReceiptVatPercentage": 0.21,
+    "ReceiptTotalVatSum": 10.99,
+    "ReceiptTotalDue": 13.3
+  }
+}

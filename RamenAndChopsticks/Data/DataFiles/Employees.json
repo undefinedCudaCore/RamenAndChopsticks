@@ -106,5 +106,14 @@
     "EmployeeAge": 222,
     "EmployeeGender": "2222",
     "EmployeeJobTitle": "2222"
+  },
+  "Ek2tqrkI": {
+    "EmployeeUsername": "auth",
+    "EmployeePassword": "12h12k12m",
+    "EmployeeName": "Auth 2.0",
+    "EmployeeSurename": "Genesis",
+    "EmployeeAge": 9999,
+    "EmployeeGender": "none",
+    "EmployeeJobTitle": "Undefined"
   }
 }

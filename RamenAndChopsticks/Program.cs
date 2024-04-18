@@ -18,10 +18,10 @@ namespace RamenAndChopsticks
             ITable tableService = new TableService();
             tableService.CreateTableListIfFileIsEmpty(TableService._maxTables, TableService._tableSpaces);
 
-            ChooseHuman();
+            MainMenu();
         }
 
-        internal static void ChooseHuman()
+        internal static void MainMenu()
         {
             //Print the welcome page;
             IShowContent showContentService = new ShowContentService();

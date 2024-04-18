@@ -1,0 +1,26 @@
+{
+  "05jYvLwT": {
+    "ReceiptId": "3ViqMT7w",
+    "ReceiptRestorantName": "Ramen and CHOPSTICKS",
+    "ReceiptAddress": "62 Thomas Street, New York, NY",
+    "ReceiptDate": "Thursday_18_April_2024_16_03_26",
+    "ReceiptTableId": "17",
+    "ReceiptTableSpacesUsed": 0,
+    "ReceiptOrderId": "e2P0b4G8",
+    "ReceiptGuestName": "Utility Nomes",
+    "ReceiptEmployeeId": "rrr",
+    "ReceiptEmployeeJobTitle": "fsdgf",
+    "ReceiptEmployeeName": "fff aaa",
+    "ReceiptDrinkId": "JBNneG3y",
+    "ReceiptDrinkName": "Sprite",
+    "ReceiptDrinkPriceWithoutVat": 1.0,
+    "ReceiptDrinkPriceWithVat": 1.21,
+    "ReceiptFoodId": "iLY0lfKc",
+    "ReceiptFoodName": "French fries",
+    "ReceiptFoodPriceWithoutVat": 2.39,
+    "ReceiptFoodPriceWithVat": 2.89,
+    "ReceiptVatPercentage": 0.21,
+    "ReceiptTotalVatSum": 3.39,
+    "ReceiptTotalDue": 4.1
+  }
+}

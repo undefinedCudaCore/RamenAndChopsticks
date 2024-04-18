@@ -1,4 +1,5 @@
 ﻿using RamenAndChopsticks.Contracts;
+using RamenAndChopsticks.Data;
 using RamenAndChopsticks.Models;
 
 namespace RamenAndChopsticks.Services
@@ -6,6 +7,7 @@ namespace RamenAndChopsticks.Services
     internal class ShowContentService : IShowContent
     {
         private readonly int _padding = 50;
+        private bool PrintGreeting = true;
         public void ShowChooseOption(string optionOne, string optionTwo, string optionThree, string color)
         {
             Console.WriteLine("--------------------------------------------------");
@@ -154,11 +156,11 @@ namespace RamenAndChopsticks.Services
 
         public void PrintTalbeList(Dictionary<string, Table> tableList)
         {
-            //Dictionary<string, Table> tableList = Helpers.ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
             string yes = "YES";
             string no = "NO";
             string noCustomer = "Here you will see the customers's name.";
             string noEmployee = "Here you will see the employee's name.";
+            tableList = Helpers.ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
 
             foreach (var table in tableList.Values)
             {
@@ -246,11 +248,18 @@ namespace RamenAndChopsticks.Services
 
         public void PrintReceiptForCustomer(Receipt newReceipt)
         {
+            PrintGreeting = false;
+
+            Console.Clear();
+            ShowGreating();
+
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 
             Console.WriteLine();
             Console.WriteLine("--------------------------------------------------");
 
+            Console.WriteLine("---==Customer receipt==---");
+            Console.WriteLine("******************");
             Console.WriteLine(newReceipt.ReceiptRestorantName);
             Console.WriteLine(newReceipt.ReceiptAddress);
 
@@ -272,13 +281,19 @@ namespace RamenAndChopsticks.Services
         }
         public void PrintReceiptForEmployee(Receipt newReceipt)
         {
-            Console.WriteLine();
-            Console.WriteLine("--------------------------------------------------");
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 
+            if (PrintGreeting)
+            {
+                ShowGreating();
+                PrintGreeting = true;
+            }
+
             Console.WriteLine();
             Console.WriteLine("--------------------------------------------------");
 
+            Console.WriteLine("---==Employee receipt==---");
+            Console.WriteLine("******************");
             Console.WriteLine(newReceipt.ReceiptRestorantName);
             Console.WriteLine(newReceipt.ReceiptAddress);
 
@@ -307,9 +322,6 @@ namespace RamenAndChopsticks.Services
             Console.WriteLine($"VAT: {newReceipt.ReceiptVatPercentage * 100} %".PadLeft(_padding));
             Console.WriteLine($"Total due VAT sum: {newReceipt.ReceiptTotalVatSum} €".PadLeft(_padding));
             Console.WriteLine($"Total due with VAT: {newReceipt.ReceiptTotalDue} €".PadLeft(_padding));
-
-            Console.WriteLine("--------------------------------------------------");
-            Console.WriteLine();
 
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine();

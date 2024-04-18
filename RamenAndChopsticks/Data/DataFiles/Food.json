@@ -6,7 +6,8 @@
     "ItemDescription": "Italian pizza",
     "ItemUnitOfMeasurement": "Units",
     "ItemPriceWithoutVat": 12.99,
-    "ItemPriceWithVat": 15.72
+    "ItemPriceWithVat": 15.72,
+    "ItemCreationDateTime": "2024_04_16 14:17:33"
   },
   "TxPsZ8Kh": {
     "ItemId": "m940pwa7",
@@ -15,6 +16,17 @@
     "ItemDescription": "From Burger King",
     "ItemUnitOfMeasurement": "Units",
     "ItemPriceWithoutVat": 9.99,
-    "ItemPriceWithVat": 12.09
+    "ItemPriceWithVat": 12.09,
+    "ItemCreationDateTime": "2024_04_12 14:17:33"
+  },
+  "mj0iBz4t": {
+    "ItemId": "iLY0lfKc",
+    "ItemName": "French fries",
+    "ItemQty": 120.0,
+    "ItemDescription": "Fast food",
+    "ItemUnitOfMeasurement": "KG",
+    "ItemPriceWithoutVat": 2.39,
+    "ItemPriceWithVat": 2.89,
+    "ItemCreationDateTime": "2024_04_18 14:18:15"
   }
 }

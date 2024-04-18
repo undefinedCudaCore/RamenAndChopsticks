@@ -132,7 +132,7 @@ namespace RamenAndChopsticks.Services
                                 Thread.Sleep(3000);
                                 Console.Clear();
 
-                                Program.ChooseHuman();
+                                Program.MainMenu();
                             }
                             break;
                         case "2":
@@ -165,7 +165,7 @@ namespace RamenAndChopsticks.Services
                                 Thread.Sleep(3000);
                                 Console.Clear();
 
-                                Program.ChooseHuman();
+                                Program.MainMenu();
                             }
                             //Console.WriteLine("Choose a registered employee.");
                             break;
@@ -173,14 +173,14 @@ namespace RamenAndChopsticks.Services
                             Console.Clear();
                             showContentService.ShowGreating();
 
-                            Program.ChooseHuman();
+                            Program.MainMenu();
                             break;
                         default:
                             Thread.Sleep(3);
                             Console.Clear();
                             showContentService.ShowGreating();
 
-                            Program.ChooseHuman();
+                            Program.MainMenu();
                             break;
                     }
                 }
@@ -199,22 +199,22 @@ namespace RamenAndChopsticks.Services
                             Console.Clear();
 
                             //Console.WriteLine("Pass to the table.");
-                            Program.ChooseHuman();
+                            Program.MainMenu();
                             break;
                         case "2":
                             Console.Clear();
 
                             //Console.WriteLine("Make table reservations.");
-                            Program.ChooseHuman();
+                            Program.MainMenu();
                             break;
                         case "q":
                             Console.Clear();
-                            Program.ChooseHuman();
+                            Program.MainMenu();
                             break;
                         default:
                             Thread.Sleep(3);
                             Console.Clear();
-                            Program.ChooseHuman();
+                            Program.MainMenu();
                             break;
                     }
 
@@ -232,6 +232,7 @@ namespace RamenAndChopsticks.Services
             ITable tableService = new TableService();
             IOrder orderService = new OrderService();
             IReceipt receiptService = new ReceiptService();
+            IStatistics statisticsService = new StatisticsService();
 
             switch (option)
             {
@@ -248,6 +249,7 @@ namespace RamenAndChopsticks.Services
 
                     Console.WriteLine("Type the customer quantity and press ENTER:");
                     bool bCustomeQty = int.TryParse(Console.ReadLine(), out int customerQty);
+                    Console.Clear();
 
                     if (!bCustomeQty)
                     {
@@ -259,6 +261,8 @@ namespace RamenAndChopsticks.Services
                     tableService.GetTable(tableNumber, customerName, _currentUser, customerQty);
                     //Add print menu
                     Helpers.MenuPrintAndAddSelectionHelper.MenuPrintAndAddSelection(out string selectedDrink, out string selectedFood);
+                    Console.Clear();
+
                     Order newOrder = orderService.CreateOrder(selectedDrink, selectedFood);
                     _currentOrder = newOrder.OrderId;
 
@@ -266,6 +270,25 @@ namespace RamenAndChopsticks.Services
 
                     Receipt newReceipt = receiptService.CreateReceipt(Helpers.RandomIdHelper.RandomIdGenerator());
                     receiptService.WriteInTheFileReceipt(newReceipt);
+                    statisticsService.WriteInTheFileReceipt(newReceipt);
+
+                    Console.WriteLine("Print receipt for customer? If YES type 'YES' and press Enter:");
+                    string printReceiptForCustomer = Console.ReadLine();
+
+                    if (printReceiptForCustomer.ToLower() == "yes")
+                    {
+                        showContentService.PrintReceiptForCustomer(newReceipt);
+                    }
+                    if (printReceiptForCustomer.ToLower() != "yes")
+                    {
+                        Console.WriteLine("Thank you for visiting our restaurant.");
+                        Thread.Sleep(3000);
+                    }
+
+                    showContentService.PrintReceiptForEmployee(newReceipt);
+
+                    orderService.EndOrder(newOrder.OrderId, _currentTable);
+                    //Redirect
                     break;
                 case "2":
                     Console.Clear();
