@@ -2,10 +2,11 @@
 {
     internal class Item
     {
-        public Item(string itemId, string itemName, string itemDescription, string unitOfMeasurement, double itemQty, double itemPriceWithoutVat)
+        public Item(string itemId, string itemName, string itemCreationEmployeeId, string itemDescription, string unitOfMeasurement, double itemQty, double itemPriceWithoutVat)
         {
             ItemId = itemId;
             ItemName = itemName;
+            ItemCreationEmployeeId = itemCreationEmployeeId;
             ItemQty = itemQty;
             ItemDescription = itemDescription;
             ItemUnitOfMeasurement = unitOfMeasurement;
@@ -16,6 +17,7 @@
 
         public string ItemId { get; set; }
         public string ItemName { get; set; }
+        public string ItemCreationEmployeeId { get; set; }
         public double ItemQty { get; set; }
         public string ItemDescription { get; set; }
         public string ItemUnitOfMeasurement { get; set; }

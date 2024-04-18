@@ -5,7 +5,7 @@
         internal static class HumanOptionData
         {
             internal static readonly string OptionOne = "\"1\" - Employee;";
-            internal static readonly string OptionTwo = "\"2\" - Customer;";
+            internal static readonly string OptionTwo = "\"2\" - Customer (development in progress);";
             internal static readonly string OptionThree = "\"Q\" - Exit.";
         }
 
@@ -30,6 +30,7 @@
             internal static readonly string OptionThree = "\"3\" - Free up table.";
             internal static readonly string OptionFour = "\"4\" - Add/Remove food or drink.";
             internal static readonly string OptionFive = "\"Q\" - Go to previous page.";
+            internal static readonly string OptionSix = "\"5\" - Show restaurant statistics.";
         }
 
         internal static class FoodMenuData
@@ -53,7 +54,9 @@
         {
             internal static readonly string EraseRedirectPreviousPage = "Erasing.. You will be redirected to the previous page..";
             internal static readonly string AddRedirectPreviousPage = "Adding data.. You will be redirected to the previous page..";
-            internal static readonly string WrongInputOperationFailedRedirectPreviousPage = "Wrong qantity or price input.. Operation faile.. You will be redirected to the previous page..";
+            internal static readonly string WrongInputQuantityOrPriceOperationFailedRedirectPreviousPage = "Wrong quantity or price input.. Operation failed.. You will be redirected to the previous page..";
+            internal static readonly string WrongInputOperationFailedRedirectMainPage = "Wrong input.. Operation failed.. You will be redirected to the main page..";
+            internal static readonly string RedirectMainPage = "You will be redirected to the main page..";
         }
     }
 }

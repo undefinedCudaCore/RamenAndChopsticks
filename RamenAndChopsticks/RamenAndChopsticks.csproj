@@ -18,7 +18,6 @@
   <ItemGroup>
     <Folder Include="Data\DataFiles\" />
     <Folder Include="Data\DataFiles\Receipts\" />
-    <Folder Include="Redirects\" />
   </ItemGroup>
 
   <ItemGroup>

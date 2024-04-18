@@ -297,5 +297,57 @@
     "OrderTotalPrice": 0.0,
     "OrderStartDateTime": "2024-04-18T16:38:08.8709612+03:00",
     "OrderEndDateTime": "2024-04-18T16:38:13.1456783+03:00"
+  },
+  "rqsIUzM4": {
+    "OrderId": "M1Knzcvk",
+    "OrderTableId": "19",
+    "OrderPersonnelWhoServedId": "222",
+    "OrderTableUsedSpaces": 0,
+    "OrderDrinkId": "hT6wq2MJ",
+    "OrderDrinkPriceWithVat": 0.0,
+    "OrderFoodId": "iLY0lfKc",
+    "OrderFoodPriceWithVat": 2.89,
+    "OrderTotalPrice": 2.89,
+    "OrderStartDateTime": "2024-04-18T18:18:54.7825911+03:00",
+    "OrderEndDateTime": "2024-04-18T18:18:56.762493+03:00"
+  },
+  "yTL8IVNG": {
+    "OrderId": "vph3xExe",
+    "OrderTableId": "19",
+    "OrderPersonnelWhoServedId": "auth",
+    "OrderTableUsedSpaces": 2,
+    "OrderDrinkId": "sEIhsc1z",
+    "OrderDrinkPriceWithVat": 6.05,
+    "OrderFoodId": "GuWj067E",
+    "OrderFoodPriceWithVat": 0.0,
+    "OrderTotalPrice": 6.05,
+    "OrderStartDateTime": "2024-04-18T19:35:54.2082087+03:00",
+    "OrderEndDateTime": "2024-04-18T19:35:56.3289684+03:00"
+  },
+  "W2yPCFpM": {
+    "OrderId": "gdN0xE1I",
+    "OrderTableId": "19",
+    "OrderPersonnelWhoServedId": "222",
+    "OrderTableUsedSpaces": 2,
+    "OrderDrinkId": "MamytIaP",
+    "OrderDrinkPriceWithVat": 2.2,
+    "OrderFoodId": "m940pwa7",
+    "OrderFoodPriceWithVat": 12.09,
+    "OrderTotalPrice": 14.29,
+    "OrderStartDateTime": "2024-04-18T20:44:27.5101629+03:00",
+    "OrderEndDateTime": "2024-04-18T20:44:30.1284582+03:00"
+  },
+  "biWnvJmi": {
+    "OrderId": "gYEaX8sq",
+    "OrderTableId": "19",
+    "OrderPersonnelWhoServedId": "222",
+    "OrderTableUsedSpaces": 0,
+    "OrderDrinkId": "JBNneG3y",
+    "OrderDrinkPriceWithVat": 1.21,
+    "OrderFoodId": "iLY0lfKc",
+    "OrderFoodPriceWithVat": 2.89,
+    "OrderTotalPrice": 4.1,
+    "OrderStartDateTime": "2024-04-18T20:46:54.5460151+03:00",
+    "OrderEndDateTime": "2024-04-18T20:46:59.9950996+03:00"
   }
 }

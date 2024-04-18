@@ -6,7 +6,7 @@ namespace RamenAndChopsticks
 {
     internal class Program
     {
-        internal static void Main()
+        static void Main(string[] args)
         {
             //Check and create the necessary data files.
             IDataFile dataFileCheckAndCreateService = new DataFileService();

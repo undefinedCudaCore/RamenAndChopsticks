@@ -1,0 +1,26 @@
+{
+  "5kutZYnC": {
+    "ReceiptId": "7i9YuaZH",
+    "ReceiptRestorantName": "Ramen and CHOPSTICKS",
+    "ReceiptAddress": "62 Thomas Street, New York, NY",
+    "ReceiptDate": "2024_04_18_19_35_54",
+    "ReceiptTableId": "19",
+    "ReceiptTableSpacesUsed": 2,
+    "ReceiptOrderId": "vph3xExe",
+    "ReceiptGuestName": "Oh My God",
+    "ReceiptEmployeeId": "auth",
+    "ReceiptEmployeeJobTitle": "Undefined",
+    "ReceiptEmployeeName": "Auth 2.0 Genesis",
+    "ReceiptDrinkId": "sEIhsc1z",
+    "ReceiptDrinkName": "Juice",
+    "ReceiptDrinkPriceWithoutVat": 5.0,
+    "ReceiptDrinkPriceWithVat": 6.05,
+    "ReceiptFoodId": "GuWj067E",
+    "ReceiptFoodName": "",
+    "ReceiptFoodPriceWithoutVat": 0.0,
+    "ReceiptFoodPriceWithVat": 0.0,
+    "ReceiptVatPercentage": 0.21,
+    "ReceiptTotalVatSum": 5.0,
+    "ReceiptTotalDue": 6.05
+  }
+}
