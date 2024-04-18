@@ -1,0 +1,20 @@
+{
+  "Q9Q8Du8Z": {
+    "ItemId": "jktc9P3C",
+    "ItemName": "Pizza",
+    "ItemQty": 20.0,
+    "ItemDescription": "Italian pizza",
+    "ItemUnitOfMeasurement": "Units",
+    "ItemPriceWithoutVat": 12.99,
+    "ItemPriceWithVat": 15.72
+  },
+  "TxPsZ8Kh": {
+    "ItemId": "m940pwa7",
+    "ItemName": "Burger",
+    "ItemQty": 100.0,
+    "ItemDescription": "From Burger King",
+    "ItemUnitOfMeasurement": "Units",
+    "ItemPriceWithoutVat": 9.99,
+    "ItemPriceWithVat": 12.09
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "C1xQVlh4": {
+    "ItemId": "JBNneG3y",
+    "ItemName": "Sprite",
+    "ItemQty": 99.0,
+    "ItemDescription": "Not good drink",
+    "ItemUnitOfMeasurement": "Litres",
+    "ItemPriceWithoutVat": 1.0,
+    "ItemPriceWithVat": 1.21
+  },
+  "OVa97swl": {
+    "ItemId": "hT6wg2MJ",
+    "ItemName": "Water",
+    "ItemQty": 120.0,
+    "ItemDescription": "Very healthy",
+    "ItemUnitOfMeasurement": "Litres",
+    "ItemPriceWithoutVat": 2.0,
+    "ItemPriceWithVat": 2.42
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "VIBe9gjm": {
+    "TableNumber": "1",
+    "TableCurrentCustomer": "Eddy",
+    "TableCurrentEmployee": "222",
+    "TableIableFreeSpacesLeft": 3,
+    "TableIsBusy": true,
+    "TableIsReserved": false
+  },
+  "dZ8lIJkO": {
+    "TableNumber": "2",
+    "TableCurrentCustomer": "Sherlock H",
+    "TableCurrentEmployee": "222",
+    "TableIableFreeSpacesLeft": 1,
+    "TableIsBusy": true,
+    "TableIsReserved": false
+  },
+  "DcvhEHCr": {
+    "TableNumber": "3",
+    "TableCurrentCustomer": "John Smith",
+    "TableCurrentEmployee": "222",
+    "TableIableFreeSpacesLeft": 3,
+    "TableIsBusy": true,
+    "TableIsReserved": false
+  },
+  "aadWnocC": {
+    "TableNumber": "4",
+    "TableCurrentCustomer": "Hey Tomy",
+    "TableCurrentEmployee": "222",
+    "TableIableFreeSpacesLeft": 3,
+    "TableIsBusy": true,
+    "TableIsReserved": false
+  },
+  "HLkm3Vrb": {
+    "TableNumber": "5",
+    "TableCurrentCustomer": "Oj Em",
+    "TableCurrentEmployee": "222",
+    "TableIableFreeSpacesLeft": 0,
+    "TableIsBusy": true,
+    "TableIsReserved": false
+  },
+  "zcOGKNRf": {
+    "TableNumber": "6",
+    "TableCurrentCustomer": "Yahoo Man",
+    "TableCurrentEmployee": "222",
+    "TableIableFreeSpacesLeft": 3,
+    "TableIsBusy": true,
+    "TableIsReserved": false
+  },
+  "VS8kxtTr": {
+    "TableNumber": "7",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
+    "TableIableFreeSpacesLeft": 4,
+    "TableIsBusy": false,
+    "TableIsReserved": false
+  },
+  "y7Y9ohPd": {
+    "TableNumber": "8",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
+    "TableIableFreeSpacesLeft": 4,
+    "TableIsBusy": false,
+    "TableIsReserved": false
+  },
+  "3TNBH8Cl": {
+    "TableNumber": "9",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
+    "TableIableFreeSpacesLeft": 4,
+    "TableIsBusy": false,
+    "TableIsReserved": false
+  },
+  "2KcQNlP5": {
+    "TableNumber": "10",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
+    "TableIableFreeSpacesLeft": 4,
+    "TableIsBusy": false,
+    "TableIsReserved": false
+  },
+  "hFNbs3eP": {
+    "TableNumber": "11",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
+    "TableIableFreeSpacesLeft": 4,
+    "TableIsBusy": false,
+    "TableIsReserved": false
+  },
+  "n9ByPqoA": {
+    "TableNumber": "12",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
+    "TableIableFreeSpacesLeft": 4,
+    "TableIsBusy": false,
+    "TableIsReserved": false
+  },
+  "sGJROyjg": {
+    "TableNumber": "13",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
+    "TableIableFreeSpacesLeft": 4,
+    "TableIsBusy": false,
+    "TableIsReserved": false
+  },
+  "gz0yxepL": {
+    "TableNumber": "14",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
+    "TableIableFreeSpacesLeft": 4,
+    "TableIsBusy": false,
+    "TableIsReserved": false
+  },
+  "YQilXaIU": {
+    "TableNumber": "15",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
+    "TableIableFreeSpacesLeft": 4,
+    "TableIsBusy": false,
+    "TableIsReserved": false
+  },
+  "Fl9J9C7h": {
+    "TableNumber": "16",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
+    "TableIableFreeSpacesLeft": 4,
+    "TableIsBusy": false,
+    "TableIsReserved": false
+  },
+  "bYMSiWAg": {
+    "TableNumber": "17",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
+    "TableIableFreeSpacesLeft": 4,
+    "TableIsBusy": false,
+    "TableIsReserved": false
+  },
+  "WLvKsSkK": {
+    "TableNumber": "18",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
+    "TableIableFreeSpacesLeft": 4,
+    "TableIsBusy": false,
+    "TableIsReserved": false
+  },
+  "CaucIupk": {
+    "TableNumber": "19",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
+    "TableIableFreeSpacesLeft": 4,
+    "TableIsBusy": false,
+    "TableIsReserved": false
+  },
+  "rKwt44FA": {
+    "TableNumber": "20",
+    "TableCurrentCustomer": "Coffee man",
+    "TableCurrentEmployee": "222",
+    "TableIableFreeSpacesLeft": 2,
+    "TableIsBusy": true,
+    "TableIsReserved": false
+  }
+}
