@@ -5,6 +5,7 @@ namespace RamenAndChopsticks.Services
 {
     internal class ShowContentService : IShowContent
     {
+        private readonly int _padding = 50;
         public void ShowChooseOption(string optionOne, string optionTwo, string optionThree, string color)
         {
             Console.WriteLine("--------------------------------------------------");
@@ -238,6 +239,77 @@ namespace RamenAndChopsticks.Services
                 Console.WriteLine();
                 Console.WriteLine("--------------------------------------------------");
             }
+
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine();
+        }
+
+        public void PrintReceiptForCustomer(Receipt newReceipt)
+        {
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------------");
+
+            Console.WriteLine(newReceipt.ReceiptRestorantName);
+            Console.WriteLine(newReceipt.ReceiptAddress);
+
+            Console.WriteLine(newReceipt.ReceiptDate.PadLeft(_padding));
+            Console.WriteLine("******************");
+
+            Console.WriteLine($"Table: {newReceipt.ReceiptTableId}   " +
+                $"Order NO.: {newReceipt.ReceiptOrderId}   " +
+                $"Guest: {newReceipt.ReceiptGuestName}");
+
+            Console.WriteLine($"Drink: {newReceipt.ReceiptDrinkName} {newReceipt.ReceiptDrinkPriceWithVat} €".PadLeft(_padding));
+            Console.WriteLine($"Meal: {newReceipt.ReceiptFoodName} {newReceipt.ReceiptFoodPriceWithVat} €".PadLeft(_padding));
+            Console.WriteLine($"VAT: {newReceipt.ReceiptVatPercentage * 100} %".PadLeft(_padding));
+            Console.WriteLine($"Total due: {newReceipt.ReceiptTotalDue} €".PadLeft(_padding));
+
+
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine();
+        }
+        public void PrintReceiptForEmployee(Receipt newReceipt)
+        {
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------------");
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------------");
+
+            Console.WriteLine(newReceipt.ReceiptRestorantName);
+            Console.WriteLine(newReceipt.ReceiptAddress);
+
+            Console.WriteLine(newReceipt.ReceiptDate.PadLeft(_padding));
+            Console.WriteLine("******************");
+
+            Console.WriteLine($"Table: {newReceipt.ReceiptTableId}   " +
+                $"Order NO.: {newReceipt.ReceiptOrderId}   " +
+                $"Guest: {newReceipt.ReceiptGuestName}");
+
+            Console.WriteLine($"Employee username: {newReceipt.ReceiptEmployeeId}");
+            Console.WriteLine($"Employee name: {newReceipt.ReceiptEmployeeName}");
+            Console.WriteLine($"Employee job title: {newReceipt.ReceiptEmployeeJobTitle}");
+            Console.WriteLine("******************");
+
+            Console.WriteLine($"Drink ID: {newReceipt.ReceiptDrinkId}".PadLeft(_padding));
+            Console.WriteLine($"Drink {newReceipt.ReceiptDrinkName}".PadLeft(_padding));
+            Console.WriteLine($"Price without VAT: {newReceipt.ReceiptDrinkPriceWithoutVat} €");
+            Console.WriteLine($"Price with VAT: {newReceipt.ReceiptDrinkPriceWithVat} €");
+            Console.WriteLine("******************");
+            Console.WriteLine($"Meal ID: {newReceipt.ReceiptFoodId}".PadLeft(_padding));
+            Console.WriteLine($"Meal: {newReceipt.ReceiptFoodName}".PadLeft(_padding));
+            Console.WriteLine($"Price without VAT: {newReceipt.ReceiptFoodPriceWithoutVat} €");
+            Console.WriteLine($"Price with VAT: {newReceipt.ReceiptFoodPriceWithVat} €");
+            Console.WriteLine("******************");
+            Console.WriteLine($"VAT: {newReceipt.ReceiptVatPercentage * 100} %".PadLeft(_padding));
+            Console.WriteLine($"Total due VAT sum: {newReceipt.ReceiptTotalVatSum} €".PadLeft(_padding));
+            Console.WriteLine($"Total due with VAT: {newReceipt.ReceiptTotalDue} €".PadLeft(_padding));
+
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine();
 
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine();

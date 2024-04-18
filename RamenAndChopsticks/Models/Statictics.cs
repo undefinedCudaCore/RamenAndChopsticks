@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RamenAndChopsticks.Models
+﻿namespace RamenAndChopsticks.Models
 {
-    internal class Statictics
+    internal class Statictics : Receipt
     {
+        public Statictics(string receiptId) : base(receiptId)
+        {
+            StatisticsId = receiptId;
+        }
+        public string StatisticsId { get; set; }
     }
 }

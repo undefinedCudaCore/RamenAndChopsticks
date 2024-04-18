@@ -13,5 +13,7 @@ namespace RamenAndChopsticks.Contracts
         internal void PrintTalbeList(Dictionary<string, Table> tableList);
         internal void PrintItemList(Dictionary<string, Item> itemList);
         internal void PrintItemMenuList(Dictionary<string, Item> drinksList, Dictionary<string, Item> FoodList);
+        internal void PrintReceiptForCustomer(Receipt newReceipt);
+        internal void PrintReceiptForEmployee(Receipt newReceipt);
     }
 }
