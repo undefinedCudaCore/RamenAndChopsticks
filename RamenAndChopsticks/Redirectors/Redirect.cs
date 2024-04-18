@@ -12,6 +12,8 @@ namespace RamenAndChopsticks.Redirectors
         internal static void RedirectTo(string redirectData)
         {
             redirectData = redirectData.ToLower();
+            IShowContent showContentService = new ShowContentService();
+            ISteps stepsService = new StepsService();
 
             switch (redirectData)
             {
@@ -19,10 +21,8 @@ namespace RamenAndChopsticks.Redirectors
                     Program.MainMenu();
                     break;
                 case "employeemenu":
-                    IShowContent showContentService = new ShowContentService();
-                    ISteps stepsService = new StepsService();
 
-                    showContentService.RedirectMessage(DataContent.RedirectorsData.RedirectMainPage);
+                    showContentService.RedirectMessage(DataContent.RedirectorsData.RedirectEmployeePage);
                     Thread.Sleep(3000);
 
                     Console.Clear();
@@ -33,6 +33,14 @@ namespace RamenAndChopsticks.Redirectors
                         DataContent.EmployeeMenuData.OptionFour,
                         DataContent.EmployeeMenuData.OptionFive, "green");
                     stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), TabelList);
+                    break;
+                case "employeelogin":
+                    Console.Clear();
+                    showContentService.ShowGreating();
+                    showContentService.ShowChooseOption(DataContent.EmployeeOptionData.OptionOne,
+                        DataContent.EmployeeOptionData.OptionTwo,
+                        DataContent.EmployeeOptionData.OptionThree, "green");
+                    stepsService.ChooseEmployeeCreationOrLoginStep(Console.ReadLine());
                     break;
                 default:
                     Program.MainMenu();

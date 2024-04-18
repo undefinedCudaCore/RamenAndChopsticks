@@ -271,90 +271,24 @@ namespace RamenAndChopsticks.Services
                     CaseTakeAnOrder(tabels, showContentService, tableService, orderService, receiptService, statisticsService, out tableNumber, out customerName, out bCustomeQty, out customerQty);
                     break;
                 case "2":
-                    Console.Clear();
-                    showContentService.ShowGreating();
-                    showContentService.PrintTalbeList(tabels);
-
-                    Console.WriteLine("Type the table number and press ENTER:");
-                    tableNumber = Console.ReadLine();
-
-                    Console.WriteLine("Type the customer's name and press ENTER:");
-                    customerName = Console.ReadLine();
-
-                    Console.WriteLine("Type the customer quantity and press ENTER:");
-                    bCustomeQty = int.TryParse(Console.ReadLine(), out customerQty);
-
-                    if (!bCustomeQty)
-                    {
-                        Console.WriteLine("Enter the wrong age, try one more time. If you enter the age incorrectly, the employee's age will be saved as \"0\".");
-                        bCustomeQty = int.TryParse(Console.ReadLine(), out customerQty);
-                    }
-                    tableService.ReserveTable(tableNumber, customerName, _currentUser, customerQty);
+                    CaseReserveTable(tabels, showContentService, tableService, out tableNumber, out customerName, out bCustomeQty, out customerQty);
                     break;
                 case "3":
-                    Console.Clear();
-                    showContentService.ShowGreating();
-                    showContentService.PrintTalbeList(tabels);
-
-                    Console.WriteLine("Type the table number to free up the table and press ENTER:");
-                    tableNumber = Console.ReadLine();
-
-                    tableService.FreeUpTable(tableNumber, out bool successfullyFreedUp);
-
-                    if (successfullyFreedUp)
-                    {
-                        Console.WriteLine("The table is free now.");
-                        Thread.Sleep(3000);
-
-                        Console.Clear();
-                        showContentService.ShowGreating();
-                        showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                            DataContent.EmployeeMenuData.OptionTwo,
-                            DataContent.EmployeeMenuData.OptionThree,
-                            DataContent.EmployeeMenuData.OptionFour,
-                            DataContent.EmployeeMenuData.OptionFive, "green");
-                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), TabelList);
-                    }
-
-                    if (!successfullyFreedUp)
-                    {
-                        Console.WriteLine("The table is free now.");
-                        Thread.Sleep(3000);
-
-                        Console.Clear();
-                        showContentService.ShowGreating();
-                        showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                            DataContent.EmployeeMenuData.OptionTwo,
-                            DataContent.EmployeeMenuData.OptionThree,
-                            DataContent.EmployeeMenuData.OptionFour,
-                            DataContent.EmployeeMenuData.OptionFive, "green");
-                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), TabelList);
-                    }
+                    tableNumber = CaseFreeUpTable(tabels, showContentService, tableService);
                     break;
                 case "4":
-                    Console.Clear();
-                    showContentService.ShowGreating();
-                    //Add food or drink
-                    showContentService.ShowChooseOption(DataContent.FoodMenuData.OptionOne,
-                        DataContent.FoodMenuData.OptionTwo,
-                        DataContent.FoodMenuData.OptionThree,
-                        DataContent.FoodMenuData.OptionFour,
-                        DataContent.FoodMenuData.OptionFive, "green");
-
-                    var addRemoveDrinkOrFood = Console.ReadLine();
-                    ChooseHAddOrRemoveItemStep(addRemoveDrinkOrFood);
+                    CaseAddItem(showContentService);
                     break;
                 case "5":
                     showContentService.PrintStatistics();
+
+                    Console.WriteLine("Press any key to continue..");
+                    Console.ReadKey();
                     //redirect
+                    Redirect.RedirectTo("EmployeeMenu");
                     break;
                 case "q":
-                    Console.Clear();
-                    showContentService.ShowGreating();
-                    showContentService.ShowChooseOption(DataContent.EmployeeOptionData.OptionOne,
-                        DataContent.EmployeeOptionData.OptionTwo,
-                        DataContent.EmployeeOptionData.OptionThree, "green");
-                    ChooseEmployeeCreationOrLoginStep(Console.ReadLine());
+                    Redirect.RedirectTo("EmployeeLogin");
                     break;
                 default:
                     Thread.Sleep(3);
@@ -372,6 +306,93 @@ namespace RamenAndChopsticks.Services
                 Console.WriteLine(DataContent.ErrorsAndExceptionsData.ExceptionSomethingWrong);
             }
 
+        }
+
+        private void CaseAddItem(IShowContent showContentService)
+        {
+            Console.Clear();
+            showContentService.ShowGreating();
+            //Add food or drink
+            showContentService.ShowChooseOption(DataContent.FoodMenuData.OptionOne,
+                DataContent.FoodMenuData.OptionTwo,
+                DataContent.FoodMenuData.OptionThree,
+                DataContent.FoodMenuData.OptionFour,
+                DataContent.FoodMenuData.OptionFive, "green");
+
+            var addRemoveDrinkOrFood = Console.ReadLine();
+            ChooseAddOrRemoveItemStep(addRemoveDrinkOrFood);
+        }
+
+        private string CaseFreeUpTable(Dictionary<string, Table> tabels, IShowContent showContentService, ITable tableService)
+        {
+            string tableNumber;
+            Console.Clear();
+            showContentService.ShowGreating();
+            showContentService.PrintTalbeList(tabels);
+
+            Console.WriteLine("Type the table number to free up the table and press ENTER:");
+            tableNumber = Console.ReadLine();
+
+            tableService.FreeUpTable(tableNumber, out bool successfullyFreedUp);
+
+            if (successfullyFreedUp)
+            {
+                Console.WriteLine("The table is free now.");
+                Thread.Sleep(3000);
+
+                Console.Clear();
+                showContentService.ShowGreating();
+                showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
+                    DataContent.EmployeeMenuData.OptionTwo,
+                    DataContent.EmployeeMenuData.OptionThree,
+                    DataContent.EmployeeMenuData.OptionFour,
+                    DataContent.EmployeeMenuData.OptionFive, "green");
+                ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), TabelList);
+            }
+
+            if (!successfullyFreedUp)
+            {
+                Console.WriteLine("The table is free now.");
+                Thread.Sleep(3000);
+
+                Console.Clear();
+                showContentService.ShowGreating();
+                showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
+                    DataContent.EmployeeMenuData.OptionTwo,
+                    DataContent.EmployeeMenuData.OptionThree,
+                    DataContent.EmployeeMenuData.OptionFour,
+                    DataContent.EmployeeMenuData.OptionFive, "green");
+                ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), TabelList);
+            }
+
+            return tableNumber;
+        }
+
+        private static void CaseReserveTable(Dictionary<string, Table> tabels, IShowContent showContentService, ITable tableService, out string tableNumber, out string customerName, out bool bCustomeQty, out int customerQty)
+        {
+            Console.Clear();
+            showContentService.ShowGreating();
+            showContentService.PrintTalbeList(tabels);
+
+            Console.WriteLine("Type the table number and press ENTER:");
+            tableNumber = Console.ReadLine();
+
+            Console.WriteLine("Type the customer's name and press ENTER:");
+            customerName = Console.ReadLine();
+
+            Console.WriteLine("Type the customer quantity and press ENTER:");
+            bCustomeQty = int.TryParse(Console.ReadLine(), out customerQty);
+
+            if (!bCustomeQty)
+            {
+                Console.WriteLine("Enter the wrong age, try one more time. If you enter the age incorrectly, the employee's age will be saved as \"0\".");
+                bCustomeQty = int.TryParse(Console.ReadLine(), out customerQty);
+            }
+            tableService.ReserveTable(tableNumber, customerName, _currentUser, customerQty);
+
+            showContentService.RedirectMessage(DataContent.RedirectorsData.RedirectEmployeePage);
+            Thread.Sleep(3000);
+            Redirect.RedirectTo("EmployeeMenu");
         }
 
         private static void CaseTakeAnOrder(Dictionary<string, Table> tabels, IShowContent showContentService, ITable tableService, IOrder orderService, IReceipt receiptService, IStatistics statisticsService, out string tableNumber, out string customerName, out bool bCustomeQty, out int customerQty)
@@ -426,13 +447,13 @@ namespace RamenAndChopsticks.Services
 
             orderService.EndOrder(newOrder.OrderId, _currentTable);
             //Redirect
-
+            Console.WriteLine("Press any key to continue..");
             Console.ReadKey();
 
             Redirect.RedirectTo("EmployeeMenu");
         }
 
-        public void ChooseHAddOrRemoveItemStep(string option)
+        public void ChooseAddOrRemoveItemStep(string option)
         {
             IShowContent showContentService = new ShowContentService();
             IItem itemService = new ItemService();

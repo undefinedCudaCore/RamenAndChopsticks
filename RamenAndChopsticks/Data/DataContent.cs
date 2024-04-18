@@ -56,7 +56,7 @@
             internal static readonly string AddRedirectPreviousPage = "Adding data.. You will be redirected to the previous page..";
             internal static readonly string WrongInputQuantityOrPriceOperationFailedRedirectPreviousPage = "Wrong quantity or price input.. Operation failed.. You will be redirected to the previous page..";
             internal static readonly string WrongInputOperationFailedRedirectMainPage = "Wrong input.. Operation failed.. You will be redirected to the main page..";
-            internal static readonly string RedirectMainPage = "You will be redirected to the main page..";
+            internal static readonly string RedirectEmployeePage = "You will be redirected to the employee's page..";
         }
     }
 }
