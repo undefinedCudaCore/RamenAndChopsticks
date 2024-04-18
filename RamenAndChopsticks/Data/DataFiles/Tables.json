@@ -153,10 +153,10 @@
   },
   "CWr6HeV5": {
     "TableNumber": "20",
-    "TableCurrentCustomer": "Khalad Abib",
-    "TableCurrentEmployee": "auth",
+    "TableCurrentCustomer": "",
+    "TableCurrentEmployee": "",
     "TableIableFreeSpacesLeft": 4,
-    "TableIsBusy": true,
+    "TableIsBusy": false,
     "TableIsReserved": false
   }
 }

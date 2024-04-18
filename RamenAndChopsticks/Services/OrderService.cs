@@ -79,6 +79,10 @@ namespace RamenAndChopsticks.Services
                 {
                     orderDrinkPriceWithVat = drink.ItemPriceWithVat;
                 }
+                else
+                {
+                    orderDrinkPriceWithVat = 0.01;
+                }
             }
 
             foreach (var food in FoodList.Values)
@@ -86,6 +90,10 @@ namespace RamenAndChopsticks.Services
                 if (food.ItemId == orderFoodId)
                 {
                     orderFoodPriceWithVat = food.ItemPriceWithVat;
+                }
+                else
+                {
+                    orderFoodPriceWithVat = 0.01;
                 }
             }
 

@@ -461,112 +461,18 @@ namespace RamenAndChopsticks.Services
             switch (option)
             {
                 case "1":
-                    Console.Clear();
-                    showContentService.ShowGreating();
-
-                    Console.WriteLine("Type an item name and press ENTER:");
-                    string nameOfItem = Console.ReadLine();
-
-                    Console.WriteLine("Type an item description and press ENTER:");
-                    string descriptionOfItem = Console.ReadLine();
-
-                    Console.WriteLine("Type an item unit of measurement and press ENTER:");
-                    string unitOfMeasurementOfItem = Console.ReadLine();
-
-                    Console.WriteLine("Type an item quantity and press ENTER:");
-                    double QtyOfItem = double.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Type an item price without VAT and press ENTER:");
-                    double PriceWithoutVatOfItem = double.Parse(Console.ReadLine());
-
-                    if (!Double.IsNaN(QtyOfItem) && !Double.IsNaN(PriceWithoutVatOfItem))
-                    {
-                        Item itemToAdd = new Item(Helpers.RandomIdHelper.RandomIdGenerator(), nameOfItem, _currentUser, descriptionOfItem, unitOfMeasurementOfItem, QtyOfItem, PriceWithoutVatOfItem);
-                        itemService.AddDrink(itemToAdd);
-                    }
-                    else
-                    {
-                        Console.WriteLine(DataContent.RedirectorsData.WrongInputQuantityOrPriceOperationFailedRedirectPreviousPage);
-                        Thread.Sleep(3000);
-
-                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
-                    }
-
-                    Console.WriteLine(DataContent.RedirectorsData.AddRedirectPreviousPage);
-                    Thread.Sleep(3000);
-
-                    ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+                    string nameOfItem, descriptionOfItem, unitOfMeasurementOfItem;
+                    double QtyOfItem, PriceWithoutVatOfItem;
+                    CaseAddDrink(showContentService, itemService, out nameOfItem, out descriptionOfItem, out unitOfMeasurementOfItem);
                     break;
                 case "2":
-                    Console.Clear();
-                    showContentService.ShowGreating();
-                    showContentService.PrintItemList(DrinksList);
-
-                    Console.WriteLine("Type item ID to erase item and press ENTER:");
-                    string itemIdToEraseItemFromList = Console.ReadLine();
-                    itemService.RemoveDrink(itemIdToEraseItemFromList);
-
-                    Console.WriteLine(DataContent.RedirectorsData.EraseRedirectPreviousPage);
-                    Thread.Sleep(3000);
-
-                    ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+                    string itemIdToEraseItemFromList = CaseRemoveDrink(showContentService, itemService);
                     break;
                 case "3":
-                    Console.Clear();
-                    showContentService.ShowGreating();
-
-                    Console.WriteLine("Type an item name and press ENTER:");
-                    nameOfItem = Console.ReadLine();
-
-                    Console.WriteLine("Type an item description and press ENTER:");
-                    descriptionOfItem = Console.ReadLine();
-
-                    Console.WriteLine("Type an item unit of measurement and press ENTER:");
-                    unitOfMeasurementOfItem = Console.ReadLine();
-
-                    Console.WriteLine("Type an item quantity and press ENTER:");
-                    QtyOfItem = double.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Type an item price without VAT and press ENTER:");
-                    PriceWithoutVatOfItem = double.Parse(Console.ReadLine());
-
-                    if (!Double.IsNaN(QtyOfItem) && !Double.IsNaN(PriceWithoutVatOfItem))
-                    {
-                        Item itemToAdd = new Item(Helpers.RandomIdHelper.RandomIdGenerator(), nameOfItem, _currentUser, descriptionOfItem, unitOfMeasurementOfItem, QtyOfItem, PriceWithoutVatOfItem);
-                        itemService.AddFood(itemToAdd);
-                    }
-                    else
-                    {
-                        Console.WriteLine(DataContent.RedirectorsData.WrongInputQuantityOrPriceOperationFailedRedirectPreviousPage);
-                        Thread.Sleep(3000);
-
-                        ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
-                    }
-
-                    Console.WriteLine(DataContent.RedirectorsData.AddRedirectPreviousPage);
-                    Thread.Sleep(3000);
-
-                    ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
-                    showContentService.ShowGreating();
-
-                    Console.WriteLine(DataContent.RedirectorsData.AddRedirectPreviousPage);
-                    Thread.Sleep(3000);
-
-                    ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+                    CaseAddMeal(showContentService, itemService, out nameOfItem, out descriptionOfItem, out unitOfMeasurementOfItem, out QtyOfItem, out PriceWithoutVatOfItem);
                     break;
                 case "4":
-                    Console.Clear();
-                    showContentService.ShowGreating();
-                    showContentService.PrintItemList(FoodList);
-
-                    Console.WriteLine("Type item ID to erase item and press ENTER:");
-                    itemIdToEraseItemFromList = Console.ReadLine();
-                    itemService.RemoveFood(itemIdToEraseItemFromList);
-
-                    Console.WriteLine(DataContent.RedirectorsData.EraseRedirectPreviousPage);
-                    Thread.Sleep(3000);
-
-                    ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+                    itemIdToEraseItemFromList = CaseRemoveMeal(showContentService, itemService);
                     break;
                 case "q":
                     Console.Clear();
@@ -588,6 +494,122 @@ namespace RamenAndChopsticks.Services
             {
                 Console.WriteLine(DataContent.ErrorsAndExceptionsData.ExceptionSomethingWrong);
             }
+        }
+
+        private string CaseRemoveMeal(IShowContent showContentService, IItem itemService)
+        {
+            string itemIdToEraseItemFromList;
+            Console.Clear();
+            showContentService.ShowGreating();
+            showContentService.PrintItemList(FoodList);
+
+            Console.WriteLine("Type item ID to erase item and press ENTER:");
+            itemIdToEraseItemFromList = Console.ReadLine();
+            itemService.RemoveFood(itemIdToEraseItemFromList);
+
+            Console.WriteLine(DataContent.RedirectorsData.EraseRedirectPreviousPage);
+            Thread.Sleep(3000);
+
+            ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+            return itemIdToEraseItemFromList;
+        }
+
+        private void CaseAddMeal(IShowContent showContentService, IItem itemService, out string nameOfItem, out string descriptionOfItem, out string unitOfMeasurementOfItem, out double QtyOfItem, out double PriceWithoutVatOfItem)
+        {
+            Console.Clear();
+            showContentService.ShowGreating();
+
+            Console.WriteLine("Type an item name and press ENTER:");
+            nameOfItem = Console.ReadLine();
+
+            Console.WriteLine("Type an item description and press ENTER:");
+            descriptionOfItem = Console.ReadLine();
+
+            Console.WriteLine("Type an item unit of measurement and press ENTER:");
+            unitOfMeasurementOfItem = Console.ReadLine();
+
+            Console.WriteLine("Type an item quantity and press ENTER:");
+            QtyOfItem = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Type an item price without VAT and press ENTER:");
+            PriceWithoutVatOfItem = double.Parse(Console.ReadLine());
+
+            if (!Double.IsNaN(QtyOfItem) && !Double.IsNaN(PriceWithoutVatOfItem))
+            {
+                Item itemToAdd = new Item(Helpers.RandomIdHelper.RandomIdGenerator(), nameOfItem, _currentUser, descriptionOfItem, unitOfMeasurementOfItem, QtyOfItem, PriceWithoutVatOfItem);
+                itemService.AddFood(itemToAdd);
+            }
+            else
+            {
+                Console.WriteLine(DataContent.RedirectorsData.WrongInputQuantityOrPriceOperationFailedRedirectPreviousPage);
+                Thread.Sleep(3000);
+
+                ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+            }
+
+            Console.WriteLine(DataContent.RedirectorsData.AddRedirectPreviousPage);
+            Thread.Sleep(3000);
+
+            ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+            showContentService.ShowGreating();
+
+            Console.WriteLine(DataContent.RedirectorsData.AddRedirectPreviousPage);
+            Thread.Sleep(3000);
+
+            ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+        }
+
+        private string CaseRemoveDrink(IShowContent showContentService, IItem itemService)
+        {
+            Console.Clear();
+            showContentService.ShowGreating();
+            showContentService.PrintItemList(DrinksList);
+
+            Console.WriteLine("Type item ID to erase item and press ENTER:");
+            string itemIdToEraseItemFromList = Console.ReadLine();
+            itemService.RemoveDrink(itemIdToEraseItemFromList);
+
+            Console.WriteLine(DataContent.RedirectorsData.EraseRedirectPreviousPage);
+            Thread.Sleep(3000);
+
+            ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+            return itemIdToEraseItemFromList;
+        }
+
+        private void CaseAddDrink(IShowContent showContentService, IItem itemService, out string nameOfItem, out string descriptionOfItem, out string unitOfMeasurementOfItem)
+        {
+            Console.Clear();
+            showContentService.ShowGreating();
+
+            Console.WriteLine("Type an item name and press ENTER:");
+            nameOfItem = Console.ReadLine();
+            Console.WriteLine("Type an item description and press ENTER:");
+            descriptionOfItem = Console.ReadLine();
+            Console.WriteLine("Type an item unit of measurement and press ENTER:");
+            unitOfMeasurementOfItem = Console.ReadLine();
+            Console.WriteLine("Type an item quantity and press ENTER:");
+            double QtyOfItem = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Type an item price without VAT and press ENTER:");
+            double PriceWithoutVatOfItem = double.Parse(Console.ReadLine());
+
+            if (!Double.IsNaN(QtyOfItem) && !Double.IsNaN(PriceWithoutVatOfItem))
+            {
+                Item itemToAdd = new Item(Helpers.RandomIdHelper.RandomIdGenerator(), nameOfItem, _currentUser, descriptionOfItem, unitOfMeasurementOfItem, QtyOfItem, PriceWithoutVatOfItem);
+                itemService.AddDrink(itemToAdd);
+            }
+            else
+            {
+                Console.WriteLine(DataContent.RedirectorsData.WrongInputQuantityOrPriceOperationFailedRedirectPreviousPage);
+                Thread.Sleep(3000);
+
+                ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
+            }
+
+            Console.WriteLine(DataContent.RedirectorsData.AddRedirectPreviousPage);
+            Thread.Sleep(3000);
+
+            ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep("4", TabelList);
         }
     }
 }

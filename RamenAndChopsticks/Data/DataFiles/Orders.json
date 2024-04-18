@@ -349,5 +349,31 @@
     "OrderTotalPrice": 4.1,
     "OrderStartDateTime": "2024-04-18T20:46:54.5460151+03:00",
     "OrderEndDateTime": "2024-04-18T20:46:59.9950996+03:00"
+  },
+  "iIIcb34P": {
+    "OrderId": "HROe9Ou1",
+    "OrderTableId": "20",
+    "OrderPersonnelWhoServedId": "222",
+    "OrderTableUsedSpaces": 2,
+    "OrderDrinkId": "sEIhsc1z",
+    "OrderDrinkPriceWithVat": 6.05,
+    "OrderFoodId": "GuWj067E",
+    "OrderFoodPriceWithVat": 0.0,
+    "OrderTotalPrice": 6.05,
+    "OrderStartDateTime": "2024-04-18T21:12:30.3700944+03:00",
+    "OrderEndDateTime": "2024-04-18T21:12:32.2832518+03:00"
+  },
+  "Tp7r2Fvz": {
+    "OrderId": "uX2fCtxH",
+    "OrderTableId": "20",
+    "OrderPersonnelWhoServedId": "222",
+    "OrderTableUsedSpaces": 0,
+    "OrderDrinkId": "fsdfds",
+    "OrderDrinkPriceWithVat": "NaN",
+    "OrderFoodId": "fsdfsd",
+    "OrderFoodPriceWithVat": "NaN",
+    "OrderTotalPrice": "NaN",
+    "OrderStartDateTime": "2024-04-18T21:19:33.1072985+03:00",
+    "OrderEndDateTime": "2024-04-18T21:19:36.4369131+03:00"
   }
 }
