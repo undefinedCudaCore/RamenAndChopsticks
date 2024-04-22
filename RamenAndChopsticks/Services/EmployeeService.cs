@@ -19,7 +19,7 @@ namespace RamenAndChopsticks.Services
                         showContentService.ShowReturnToMainMenu("5214");
                         Thread.Sleep(3000);
                         Console.Clear();
-                        Program.Main();
+                        Program.MainMenu();
 
                         return employeeList;
                     }

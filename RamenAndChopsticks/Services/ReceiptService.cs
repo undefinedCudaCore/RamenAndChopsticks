@@ -11,7 +11,7 @@ namespace RamenAndChopsticks.Services
         {
             string restorantName = "Ramen and CHOPSTICKS";
             string restourantAddress = "62 Thomas Street, New York, NY";
-            string receiptDate = DateTime.Now.ToString("dddd_dd_MMMM_yyyy_HH_mm_ss");
+            string receiptDate = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss");
             string receiptTableId = StepsService._currentTable;
             string receiptOrderId = StepsService._currentOrder;
             string receiptGuestName = "";

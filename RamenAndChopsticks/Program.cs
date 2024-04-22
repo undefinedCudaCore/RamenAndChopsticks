@@ -6,7 +6,7 @@ namespace RamenAndChopsticks
 {
     internal class Program
     {
-        internal static void Main()
+        static void Main(string[] args)
         {
             //Check and create the necessary data files.
             IDataFile dataFileCheckAndCreateService = new DataFileService();
@@ -18,10 +18,10 @@ namespace RamenAndChopsticks
             ITable tableService = new TableService();
             tableService.CreateTableListIfFileIsEmpty(TableService._maxTables, TableService._tableSpaces);
 
-            ChooseHuman();
+            MainMenu();
         }
 
-        internal static void ChooseHuman()
+        internal static void MainMenu()
         {
             //Print the welcome page;
             IShowContent showContentService = new ShowContentService();

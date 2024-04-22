@@ -1,4 +1,5 @@
 ﻿using RamenAndChopsticks.Contracts;
+using RamenAndChopsticks.Data;
 using RamenAndChopsticks.Models;
 
 namespace RamenAndChopsticks.Services
@@ -6,6 +7,7 @@ namespace RamenAndChopsticks.Services
     internal class ShowContentService : IShowContent
     {
         private readonly int _padding = 50;
+        private bool PrintGreeting = true;
         public void ShowChooseOption(string optionOne, string optionTwo, string optionThree, string color)
         {
             Console.WriteLine("--------------------------------------------------");
@@ -111,6 +113,43 @@ namespace RamenAndChopsticks.Services
             Console.WriteLine("--------------------------------------------------");
         }
 
+        public void ShowChooseOption(string optionOne, string optionTwo, string optionThree, string optionFour, string optionFive, string optionSix, string color)
+        {
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine();
+
+            switch (color.ToLower())
+            {
+                case "red":
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case "green":
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
+                case "yellow":
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    break;
+                case "gray":
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    break;
+            }
+
+            Console.WriteLine("Type the choise and press ENTER:");
+            Console.WriteLine(optionOne);
+            Console.WriteLine(optionTwo);
+            Console.WriteLine(optionThree);
+            Console.WriteLine(optionFour);
+            Console.WriteLine(optionFive);
+            Console.WriteLine(optionSix);
+            Console.ResetColor();
+
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------------");
+        }
+
         public void ShowGreating()
         {
             Console.WriteLine("--------------------------------------------------");
@@ -154,11 +193,11 @@ namespace RamenAndChopsticks.Services
 
         public void PrintTalbeList(Dictionary<string, Table> tableList)
         {
-            //Dictionary<string, Table> tableList = Helpers.ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
             string yes = "YES";
             string no = "NO";
             string noCustomer = "Here you will see the customers's name.";
             string noEmployee = "Here you will see the employee's name.";
+            tableList = Helpers.ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
 
             foreach (var table in tableList.Values)
             {
@@ -246,17 +285,25 @@ namespace RamenAndChopsticks.Services
 
         public void PrintReceiptForCustomer(Receipt newReceipt)
         {
+            PrintGreeting = false;
+
+            Console.Clear();
+            ShowGreating();
+
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 
             Console.WriteLine();
             Console.WriteLine("--------------------------------------------------");
 
+            Console.WriteLine("---==Customer receipt==---");
+            Console.WriteLine("******************");
             Console.WriteLine(newReceipt.ReceiptRestorantName);
             Console.WriteLine(newReceipt.ReceiptAddress);
 
             Console.WriteLine(newReceipt.ReceiptDate.PadLeft(_padding));
             Console.WriteLine("******************");
 
+            Console.WriteLine($"Receipt NO. {newReceipt.ReceiptId}");
             Console.WriteLine($"Table: {newReceipt.ReceiptTableId}   " +
                 $"Order NO.: {newReceipt.ReceiptOrderId}   " +
                 $"Guest: {newReceipt.ReceiptGuestName}");
@@ -272,19 +319,26 @@ namespace RamenAndChopsticks.Services
         }
         public void PrintReceiptForEmployee(Receipt newReceipt)
         {
-            Console.WriteLine();
-            Console.WriteLine("--------------------------------------------------");
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 
+            if (PrintGreeting)
+            {
+                ShowGreating();
+                PrintGreeting = true;
+            }
+
             Console.WriteLine();
             Console.WriteLine("--------------------------------------------------");
 
+            Console.WriteLine("---==Employee receipt==---");
+            Console.WriteLine("******************");
             Console.WriteLine(newReceipt.ReceiptRestorantName);
             Console.WriteLine(newReceipt.ReceiptAddress);
 
             Console.WriteLine(newReceipt.ReceiptDate.PadLeft(_padding));
             Console.WriteLine("******************");
 
+            Console.WriteLine($"Receipt NO. {newReceipt.ReceiptId}");
             Console.WriteLine($"Table: {newReceipt.ReceiptTableId}   " +
                 $"Order NO.: {newReceipt.ReceiptOrderId}   " +
                 $"Guest: {newReceipt.ReceiptGuestName}");
@@ -310,9 +364,50 @@ namespace RamenAndChopsticks.Services
 
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine();
+        }
+
+        public void PrintStatistics()
+        {
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+
+            Console.Clear();
+            ShowGreating();
+
+            IStatistics statisticsService = new StatisticsService();
+
+            List<double> profitOfTheDay = statisticsService.GetProfitOfTheDay();
+            List<int> tablesWereUntakesNumber = statisticsService.GetTablesWereUntakesNumber();
+            List<Item> productsAddedToday = statisticsService.GetProductsAddedToday();
+
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------------");
+
+            Console.WriteLine($"Profit of the day without VAT: {profitOfTheDay[0]} €.");
+            Console.WriteLine($"Profit of the day with VAT: {profitOfTheDay[1]} €.");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine();
+
+            Console.WriteLine($"{tablesWereUntakesNumber[0]} tables were untaken.");
+            Console.WriteLine($"There were {tablesWereUntakesNumber[1]} free seats at the occupied tables.");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine();
+
+            foreach (var product in productsAddedToday)
+            {
+                Console.WriteLine($"Product ID: {product.ItemId}");
+                Console.WriteLine($"Product name: {product.ItemName}");
+                Console.WriteLine($"Product created: {product.ItemCreationDateTime}");
+                Console.WriteLine($"Product created: {product.ItemCreationEmployeeId}");
+                Console.WriteLine("--------------------------------------------------");
+            }
 
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine();
+        }
+
+        public void RedirectMessage(string message)
+        {
+            Console.WriteLine(message);
         }
     }
 }

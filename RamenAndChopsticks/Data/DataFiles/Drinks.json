@@ -2,19 +2,45 @@
   "C1xQVlh4": {
     "ItemId": "JBNneG3y",
     "ItemName": "Sprite",
+    "ItemCreationEmployeeId": "Maverick",
     "ItemQty": 99.0,
     "ItemDescription": "Not good drink",
     "ItemUnitOfMeasurement": "Litres",
     "ItemPriceWithoutVat": 1.0,
-    "ItemPriceWithVat": 1.21
+    "ItemPriceWithVat": 1.21,
+    "ItemCreationDateTime": "2024_04_17 14:16:03"
   },
   "OVa97swl": {
     "ItemId": "hT6wg2MJ",
     "ItemName": "Water",
+    "ItemCreationEmployeeId": "Anthony",
     "ItemQty": 120.0,
     "ItemDescription": "Very healthy",
     "ItemUnitOfMeasurement": "Litres",
     "ItemPriceWithoutVat": 2.0,
-    "ItemPriceWithVat": 2.42
+    "ItemPriceWithVat": 2.42,
+    "ItemCreationDateTime": "2024_04_16 14:16:03"
+  },
+  "utLAglYo": {
+    "ItemId": "MamytIaP",
+    "ItemName": "Coca-Cola",
+    "ItemCreationEmployeeId": "Catie",
+    "ItemQty": 51.0,
+    "ItemDescription": "Very bad drink",
+    "ItemUnitOfMeasurement": "Litres",
+    "ItemPriceWithoutVat": 1.82,
+    "ItemPriceWithVat": 2.2,
+    "ItemCreationDateTime": "2024_04_18 14:16:33"
+  },
+  "uabpKDuB": {
+    "ItemId": "sEIhsc1z",
+    "ItemName": "Juice",
+    "ItemCreationEmployeeId": "222",
+    "ItemQty": 20.0,
+    "ItemDescription": "Peach natural juice",
+    "ItemUnitOfMeasurement": "Litres",
+    "ItemPriceWithoutVat": 5.0,
+    "ItemPriceWithVat": 6.05,
+    "ItemCreationDateTime": "2024_04_18 19:18:50"
   }
 }
