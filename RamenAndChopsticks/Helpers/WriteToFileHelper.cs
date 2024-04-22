@@ -2,7 +2,7 @@
 
 namespace RamenAndChopsticks.Helpers
 {
-    internal static class WriteToFileHelper<T>
+    public static class WriteToFileHelper<T>
     {
         public static void WriteToFile(Dictionary<string, T> dic, string path)
         {

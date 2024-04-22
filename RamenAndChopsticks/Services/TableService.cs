@@ -5,10 +5,10 @@ using RamenAndChopsticks.Models;
 
 namespace RamenAndChopsticks.Services
 {
-    internal class TableService : ITable
+    public class TableService : ITable
     {
-        Dictionary<string, Table> _tables = ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
-        internal static readonly int _maxTables = 20;
+        internal Dictionary<string, Table> _tables = ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPath);
+        public static readonly int _maxTables = 20;
         internal static readonly int _tableSpaces = 4;
 
         public Dictionary<string, Table> CreateTableListIfFileIsEmpty(int tableQty, int tableSpaceQty)

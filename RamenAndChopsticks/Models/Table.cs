@@ -1,6 +1,6 @@
 ﻿namespace RamenAndChopsticks.Models
 {
-    internal class Table
+    public class Table
     {
         public Table(string tableNumber, string tableCurrentCustomer, string tableCurrentEmployee, int tableITableSpaces, bool tableIsBusy, bool tableIsReserved)
         {

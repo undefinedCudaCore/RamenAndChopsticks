@@ -2,10 +2,10 @@
 
 namespace RamenAndChopsticks.Helpers
 {
-    internal static class ReadFromFileHelper<T>
+    public static class ReadFromFileHelper<T>
     {
 
-        internal static Dictionary<string, T> ReadFromFile(string path)
+        public static Dictionary<string, T> ReadFromFile(string path)
         {
             if (File.Exists(path))
             {

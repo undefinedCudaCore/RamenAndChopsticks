@@ -1,6 +1,6 @@
 ﻿namespace RamenAndChopsticks.Helpers
 {
-    internal static class RandomIdHelper
+    public static class RandomIdHelper
     {
         public static string RandomIdGenerator()
         {
