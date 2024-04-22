@@ -19,6 +19,9 @@ namespace RamenAndChopsticks.Services
             //dataFile.Files.Add(DataFilePath.ReceiptInfoPath);
             dataFile.Files.Add(DataFilePath.StatisticsInfoPath);
 
+            dataFile.Files.Add(DataFilePath.TableInfoPathTest1);
+            dataFile.Files.Add(DataFilePath.TableInfoPathTest2);
+
             return dataFile.Files;
         }
 

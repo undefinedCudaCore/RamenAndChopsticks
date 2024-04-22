@@ -18,28 +18,63 @@ namespace RamenAndChopsticks.Services.Tests
 
             //Act
             ITable tableService = new TableService();
-            Dictionary<string, Table> testCreatedTablesAndSpaces = tableService.CreateTableListIfFileIsEmpty(60, 150);
+            Dictionary<string, Table> testCreatedTablesCount = tableService.CreateTableListIfFileIsEmpty(60, 150);
 
             //Assert\
-            Assert.That(tablesList.Values.Count, Is.EqualTo(testCreatedTablesAndSpaces.Values.Count));
+            Assert.That(tablesList.Values.Count, Is.EqualTo(testCreatedTablesCount.Values.Count));
         }
 
         [Test]
         public void GetTableTest()
         {
-            Assert.Fail();
+            //Arrange
+            ITable tableService = new TableService();
+            Dictionary<string, Table> testGetTableListOfTables = tableService.CreateTableListIfFileIsEmpty(5, 4);
+            tableService.GetTable("1", "Tadas Blinda", "Andy", 4);
+
+            //Act
+            Dictionary<string, Table> tablesList = ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPathTest1);
+
+            //Assert\
+            Assert.That(testGetTableListOfTables, Is.EqualTo(tablesList));
         }
 
         [Test]
         public void ReserveTableTest()
         {
-            Assert.Fail();
+
         }
 
         [Test]
         public void FreeUpTableTest()
         {
-            Assert.Fail();
+            //Arrange
+            ITable tableService = new TableService();
+            Dictionary<string, Table> testGetTableListOfTables = tableService.CreateTableListIfFileIsEmpty(5, 4);
+            int spaces = 4;
+            tableService.GetTable("1", "Tadas Blinda", "Andy", spaces);
+
+            //Act
+            tableService.FreeUpTable("1", out bool succ);
+            Dictionary<string, Table> tablesList = ReadFromFileHelper<Table>.ReadFromFile(DataFilePath.TableInfoPathTest2);
+
+            //Assert\
+            foreach (var testTable in tablesList)
+            {
+                var isBusy = testTable.Value.TableIsBusy;
+                var isReserved = testTable.Value.TableIsReserved;
+                var freeSpaces = testTable.Value.TableIableFreeSpacesLeft;
+                var currentCustomer = testTable.Value.TableCurrentCustomer;
+                var currentEmployee = testTable.Value.TableCurrentEmployee;
+
+                Assert.That(isBusy, Is.EqualTo(false));
+                Assert.That(isReserved, Is.EqualTo(false));
+                Assert.That(freeSpaces, Is.EqualTo(spaces));
+                Assert.That(currentCustomer, Is.EqualTo(""));
+                Assert.That(currentEmployee, Is.EqualTo(""));
+            }
+
+            Assert.That(testGetTableListOfTables, Is.EqualTo(tablesList));
         }
     }
 }

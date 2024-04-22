@@ -39,8 +39,8 @@ namespace RamenAndChopsticks.Services
             {
                 if (item.Value.TableNumber == tableId && item.Value.TableIsBusy == true || item.Value.TableNumber == tableId && item.Value.TableIsReserved == true)
                 {
-                    Console.Clear();
-                    showContent.ShowGreating();
+                    //Console.Clear();
+                    //showContent.ShowGreating();
 
 
                     //go to employees menu

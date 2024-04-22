@@ -16,5 +16,8 @@
         public static string TableInfoPath = newPath + @"Data\DataFiles\Tables.json";
         public static string ReceiptInfoPath = newPath + @"Data\DataFiles\Receipts\Receipt.json";
         public static string StatisticsInfoPath = newPath + @"Data\DataFiles\Statistics.json";
+
+        public static string TableInfoPathTest1 = newPath + @"Data\DataFiles\TablesTest1.json";
+        public static string TableInfoPathTest2 = newPath + @"Data\DataFiles\TablesTest2.json";
     }
 }
