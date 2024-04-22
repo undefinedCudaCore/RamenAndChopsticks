@@ -12,7 +12,7 @@ namespace RamenAndChopsticks
             IDataFile dataFileCheckAndCreateService = new DataFileService();
             var dataFileNames = dataFileCheckAndCreateService.DataFileNames();
             dataFileCheckAndCreateService.CheckFilesExists(dataFileNames);
-            dataFileCheckAndCreateService.CreateDataFiles(dataFileNames);
+            dataFileCheckAndCreateService.CreateDataFilePathAndFilesIfNotExists(dataFileNames);
 
             //Check and create the necessary data.
             ITable tableService = new TableService();

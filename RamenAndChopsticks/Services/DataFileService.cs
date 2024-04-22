@@ -4,7 +4,7 @@ using RamenAndChopsticks.Models;
 
 namespace RamenAndChopsticks.Services
 {
-    internal class DataFileService : IDataFile
+    public class DataFileService : IDataFile
     {
         public List<string> DataFileNames()
         {
@@ -18,6 +18,9 @@ namespace RamenAndChopsticks.Services
             dataFile.Files.Add(DataFilePath.TableInfoPath);
             //dataFile.Files.Add(DataFilePath.ReceiptInfoPath);
             dataFile.Files.Add(DataFilePath.StatisticsInfoPath);
+
+            dataFile.Files.Add(DataFilePath.TableInfoPathTest1);
+            dataFile.Files.Add(DataFilePath.TableInfoPathTest2);
 
             return dataFile.Files;
         }
@@ -48,7 +51,7 @@ namespace RamenAndChopsticks.Services
             }
         }
 
-        public void CreateDataFiles(List<string> dataFileList)
+        public void CreateDataFilePathAndFilesIfNotExists(List<string> dataFileList)
         {
             try
             {
