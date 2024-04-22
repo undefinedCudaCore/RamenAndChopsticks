@@ -43,10 +43,16 @@ namespace RamenAndChopsticks.Services.Tests
         public void CheckFilePathExistsTest()
         {
             //Arrange
+            string directoryDataFilesPath = DataFilePath.DrinksInfoPath;
+            string directoryReceiptsPath = DataFilePath.FoodInfoPath;
 
             //Act
+            IDataFile fileService = new DataFileService();
+            fileService.CreateDataFilePathAndFilesIfNotExists(fileService.DataFileNames());
 
             //Assert\
+            Assert.That(File.Exists(directoryDataFilesPath));
+            Assert.That(File.Exists(directoryReceiptsPath));
         }
     }
 }

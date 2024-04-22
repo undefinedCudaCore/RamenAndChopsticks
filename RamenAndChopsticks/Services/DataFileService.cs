@@ -48,7 +48,7 @@ namespace RamenAndChopsticks.Services
             }
         }
 
-        public void CreateDataFiles(List<string> dataFileList)
+        public void CreateDataFilePathAndFilesIfNotExists(List<string> dataFileList)
         {
             try
             {
