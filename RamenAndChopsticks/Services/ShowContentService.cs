@@ -303,6 +303,7 @@ namespace RamenAndChopsticks.Services
             Console.WriteLine(newReceipt.ReceiptDate.PadLeft(_padding));
             Console.WriteLine("******************");
 
+            Console.WriteLine($"Receipt NO. {newReceipt.ReceiptId}");
             Console.WriteLine($"Table: {newReceipt.ReceiptTableId}   " +
                 $"Order NO.: {newReceipt.ReceiptOrderId}   " +
                 $"Guest: {newReceipt.ReceiptGuestName}");
@@ -337,6 +338,7 @@ namespace RamenAndChopsticks.Services
             Console.WriteLine(newReceipt.ReceiptDate.PadLeft(_padding));
             Console.WriteLine("******************");
 
+            Console.WriteLine($"Receipt NO. {newReceipt.ReceiptId}");
             Console.WriteLine($"Table: {newReceipt.ReceiptTableId}   " +
                 $"Order NO.: {newReceipt.ReceiptOrderId}   " +
                 $"Guest: {newReceipt.ReceiptGuestName}");
