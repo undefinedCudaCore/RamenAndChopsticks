@@ -166,5 +166,29 @@
     "ReceiptVatPercentage": 0.21,
     "ReceiptTotalVatSum": 5.0,
     "ReceiptTotalDue": 6.05
+  },
+  "YIE00NRP": {
+    "ReceiptId": "4bAhOlP8",
+    "ReceiptRestorantName": "Ramen and CHOPSTICKS",
+    "ReceiptAddress": "62 Thomas Street, New York, NY",
+    "ReceiptDate": "2024_04_22_19_43_33",
+    "ReceiptTableId": "20",
+    "ReceiptTableSpacesUsed": 1,
+    "ReceiptOrderId": "oyJ8CXKR",
+    "ReceiptGuestName": "En suren",
+    "ReceiptEmployeeId": "222",
+    "ReceiptEmployeeJobTitle": "Waitrun",
+    "ReceiptEmployeeName": "Ad Suren",
+    "ReceiptDrinkId": "sEIhsc1z",
+    "ReceiptDrinkName": "Juice",
+    "ReceiptDrinkPriceWithoutVat": 5.0,
+    "ReceiptDrinkPriceWithVat": 6.05,
+    "ReceiptFoodId": "GuWjO67E",
+    "ReceiptFoodName": "Ravioli",
+    "ReceiptFoodPriceWithoutVat": 2.0,
+    "ReceiptFoodPriceWithVat": 2.42,
+    "ReceiptVatPercentage": 0.21,
+    "ReceiptTotalVatSum": 7.0,
+    "ReceiptTotalDue": 8.47
   }
 }

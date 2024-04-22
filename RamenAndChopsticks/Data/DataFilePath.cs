@@ -1,20 +1,20 @@
 ﻿namespace RamenAndChopsticks.Data
 {
-    internal static class DataFilePath
+    public static class DataFilePath
     {
-        private static readonly string oldPath = Environment.CurrentDirectory;
-        private static readonly string newPath = Path.GetFullPath(Path.Combine(oldPath, @"..\..\..\"));
+        public static readonly string oldPath = Environment.CurrentDirectory;
+        public static readonly string newPath = Path.GetFullPath(Path.Combine(oldPath, @"..\..\..\"));
 
-        internal static string DirectoryDataFiles = newPath + @"Data\DataFiles";
-        internal static string DirectoryReceipts = newPath + @"Data\DataFiles\Receipts";
+        public static string DirectoryDataFiles = newPath + @"Data\DataFiles";
+        public static string DirectoryReceipts = newPath + @"Data\DataFiles\Receipts";
 
-        internal static string DrinksInfoPath = newPath + @"Data\DataFiles\Drinks.json";
-        internal static string FoodInfoPath = newPath + @"Data\DataFiles\Food.json";
-        internal static string CustomersInfoPath = newPath + @"Data\DataFiles\Customers.json";
-        internal static string EmployeesInfoPath = newPath + @"Data\DataFiles\Employees.json";
-        internal static string OrdersInfoPath = newPath + @"Data\DataFiles\Orders.json";
-        internal static string TableInfoPath = newPath + @"Data\DataFiles\Tables.json";
-        internal static string ReceiptInfoPath = newPath + @"Data\DataFiles\Receipts\Receipt.json";
-        internal static string StatisticsInfoPath = newPath + @"Data\DataFiles\Statistics.json";
+        public static string DrinksInfoPath = newPath + @"Data\DataFiles\Drinks.json";
+        public static string FoodInfoPath = newPath + @"Data\DataFiles\Food.json";
+        public static string CustomersInfoPath = newPath + @"Data\DataFiles\Customers.json";
+        public static string EmployeesInfoPath = newPath + @"Data\DataFiles\Employees.json";
+        public static string OrdersInfoPath = newPath + @"Data\DataFiles\Orders.json";
+        public static string TableInfoPath = newPath + @"Data\DataFiles\Tables.json";
+        public static string ReceiptInfoPath = newPath + @"Data\DataFiles\Receipts\Receipt.json";
+        public static string StatisticsInfoPath = newPath + @"Data\DataFiles\Statistics.json";
     }
 }

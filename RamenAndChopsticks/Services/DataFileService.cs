@@ -4,7 +4,7 @@ using RamenAndChopsticks.Models;
 
 namespace RamenAndChopsticks.Services
 {
-    internal class DataFileService : IDataFile
+    public class DataFileService : IDataFile
     {
         public List<string> DataFileNames()
         {
