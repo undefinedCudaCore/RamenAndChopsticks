@@ -109,7 +109,7 @@ namespace RamenAndChopsticks.Services
                 {
                     if (item.Value.TableIableFreeSpacesLeft < customerQty)
                     {
-                        Console.Clear();
+                        //Console.Clear();
                         showContent.ShowGreating();
 
                         Console.WriteLine("Too many people split into a few groups and come back again.");

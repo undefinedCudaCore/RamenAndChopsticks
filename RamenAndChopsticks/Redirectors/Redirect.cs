@@ -40,6 +40,8 @@ namespace RamenAndChopsticks.Redirectors
                     showContentService.ShowChooseOption(DataContent.EmployeeOptionData.OptionOne,
                         DataContent.EmployeeOptionData.OptionTwo,
                         DataContent.EmployeeOptionData.OptionThree, "green");
+
+                    StepsService._choices[0] = "1";
                     stepsService.ChooseEmployeeCreationOrLoginStep(Console.ReadLine());
                     break;
                 default:
