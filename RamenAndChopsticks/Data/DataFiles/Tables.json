@@ -153,10 +153,10 @@
   },
   "CWr6HeV5": {
     "TableNumber": "20",
-    "TableCurrentCustomer": "",
-    "TableCurrentEmployee": "",
-    "TableIableFreeSpacesLeft": 4,
+    "TableCurrentCustomer": "Nugget",
+    "TableCurrentEmployee": "222",
+    "TableIableFreeSpacesLeft": 0,
     "TableIsBusy": false,
-    "TableIsReserved": false
+    "TableIsReserved": true
   }
 }

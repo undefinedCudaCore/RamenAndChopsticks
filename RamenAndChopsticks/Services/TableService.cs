@@ -39,13 +39,17 @@ namespace RamenAndChopsticks.Services
             {
                 if (item.Value.TableNumber == tableId && item.Value.TableIsBusy == true || item.Value.TableNumber == tableId && item.Value.TableIsReserved == true)
                 {
-                    //Console.Clear();
-                    //showContent.ShowGreating();
+                    Console.Clear();
+                    showContent.ShowGreating();
 
 
                     //go to employees menu
                     showContent.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                        DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
+                        DataContent.EmployeeMenuData.OptionTwo,
+                        DataContent.EmployeeMenuData.OptionThree,
+                        DataContent.EmployeeMenuData.OptionFour,
+                        DataContent.EmployeeMenuData.OptionSix,
+                        DataContent.EmployeeMenuData.OptionFive, "green");
 
                     Console.WriteLine("Choose another table. The table is busy or reserved.");
                     stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), _tables);
@@ -63,7 +67,11 @@ namespace RamenAndChopsticks.Services
 
                         //go to employees menu
                         showContent.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                            DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
+                        DataContent.EmployeeMenuData.OptionTwo,
+                        DataContent.EmployeeMenuData.OptionThree,
+                        DataContent.EmployeeMenuData.OptionFour,
+                        DataContent.EmployeeMenuData.OptionSix,
+                        DataContent.EmployeeMenuData.OptionFive, "green");
                         stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), _tables);
                     }
                     item.Value.TableIsBusy = true;
@@ -98,7 +106,11 @@ namespace RamenAndChopsticks.Services
 
                     //go to employees menu
                     showContent.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                        DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
+                        DataContent.EmployeeMenuData.OptionTwo,
+                        DataContent.EmployeeMenuData.OptionThree,
+                        DataContent.EmployeeMenuData.OptionFour,
+                        DataContent.EmployeeMenuData.OptionSix,
+                        DataContent.EmployeeMenuData.OptionFive, "green");
 
                     Console.WriteLine("Choose another table. The table is busy or reserved.");
                     stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), _tables);
@@ -109,14 +121,18 @@ namespace RamenAndChopsticks.Services
                 {
                     if (item.Value.TableIableFreeSpacesLeft < customerQty)
                     {
-                        //Console.Clear();
+                        Console.Clear();
                         showContent.ShowGreating();
 
                         Console.WriteLine("Too many people split into a few groups and come back again.");
 
                         //go to employees menu
                         showContent.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                            DataContent.EmployeeMenuData.OptionTwo, DataContent.EmployeeMenuData.OptionThree, DataContent.EmployeeMenuData.OptionFour, "green");
+                        DataContent.EmployeeMenuData.OptionTwo,
+                        DataContent.EmployeeMenuData.OptionThree,
+                        DataContent.EmployeeMenuData.OptionFour,
+                        DataContent.EmployeeMenuData.OptionSix,
+                        DataContent.EmployeeMenuData.OptionFive, "green");
                         stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), _tables);
                     }
                     item.Value.TableIsReserved = true;

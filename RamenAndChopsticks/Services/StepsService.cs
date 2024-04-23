@@ -343,10 +343,11 @@ namespace RamenAndChopsticks.Services
                 Console.Clear();
                 showContentService.ShowGreating();
                 showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                    DataContent.EmployeeMenuData.OptionTwo,
-                    DataContent.EmployeeMenuData.OptionThree,
-                    DataContent.EmployeeMenuData.OptionFour,
-                    DataContent.EmployeeMenuData.OptionFive, "green");
+                        DataContent.EmployeeMenuData.OptionTwo,
+                        DataContent.EmployeeMenuData.OptionThree,
+                        DataContent.EmployeeMenuData.OptionFour,
+                        DataContent.EmployeeMenuData.OptionSix,
+                        DataContent.EmployeeMenuData.OptionFive, "green");
                 ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), TabelList);
             }
 
@@ -358,10 +359,11 @@ namespace RamenAndChopsticks.Services
                 Console.Clear();
                 showContentService.ShowGreating();
                 showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                    DataContent.EmployeeMenuData.OptionTwo,
-                    DataContent.EmployeeMenuData.OptionThree,
-                    DataContent.EmployeeMenuData.OptionFour,
-                    DataContent.EmployeeMenuData.OptionFive, "green");
+                        DataContent.EmployeeMenuData.OptionTwo,
+                        DataContent.EmployeeMenuData.OptionThree,
+                        DataContent.EmployeeMenuData.OptionFour,
+                        DataContent.EmployeeMenuData.OptionSix,
+                        DataContent.EmployeeMenuData.OptionFive, "green");
                 ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), TabelList);
             }
 

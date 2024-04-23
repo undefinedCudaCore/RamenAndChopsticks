@@ -31,6 +31,7 @@ namespace RamenAndChopsticks.Redirectors
                         DataContent.EmployeeMenuData.OptionTwo,
                         DataContent.EmployeeMenuData.OptionThree,
                         DataContent.EmployeeMenuData.OptionFour,
+                        DataContent.EmployeeMenuData.OptionSix,
                         DataContent.EmployeeMenuData.OptionFive, "green");
                     stepsService.ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), TabelList);
                     break;
