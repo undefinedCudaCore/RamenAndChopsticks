@@ -9,7 +9,7 @@ namespace RamenAndChopsticks.Services
     internal class StepsService : ISteps
     {
         private string _chooseOption;
-        private List<string> _choices = new List<string>();
+        internal static List<string> _choices = new List<string>();
         internal static string _currentUser;
         internal static string _currentTable;
         internal static string _currentOrder;
@@ -343,10 +343,11 @@ namespace RamenAndChopsticks.Services
                 Console.Clear();
                 showContentService.ShowGreating();
                 showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                    DataContent.EmployeeMenuData.OptionTwo,
-                    DataContent.EmployeeMenuData.OptionThree,
-                    DataContent.EmployeeMenuData.OptionFour,
-                    DataContent.EmployeeMenuData.OptionFive, "green");
+                        DataContent.EmployeeMenuData.OptionTwo,
+                        DataContent.EmployeeMenuData.OptionThree,
+                        DataContent.EmployeeMenuData.OptionFour,
+                        DataContent.EmployeeMenuData.OptionSix,
+                        DataContent.EmployeeMenuData.OptionFive, "green");
                 ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), TabelList);
             }
 
@@ -358,10 +359,11 @@ namespace RamenAndChopsticks.Services
                 Console.Clear();
                 showContentService.ShowGreating();
                 showContentService.ShowChooseOption(DataContent.EmployeeMenuData.OptionOne,
-                    DataContent.EmployeeMenuData.OptionTwo,
-                    DataContent.EmployeeMenuData.OptionThree,
-                    DataContent.EmployeeMenuData.OptionFour,
-                    DataContent.EmployeeMenuData.OptionFive, "green");
+                        DataContent.EmployeeMenuData.OptionTwo,
+                        DataContent.EmployeeMenuData.OptionThree,
+                        DataContent.EmployeeMenuData.OptionFour,
+                        DataContent.EmployeeMenuData.OptionSix,
+                        DataContent.EmployeeMenuData.OptionFive, "green");
                 ChooseTakeOrderOrMakeReservationOrAddFoodAndDrinksStep(Console.ReadLine(), TabelList);
             }
 

@@ -388,5 +388,18 @@
     "OrderTotalPrice": 8.469999999999999,
     "OrderStartDateTime": "2024-04-22T19:43:33.6348574+03:00",
     "OrderEndDateTime": "2024-04-22T19:43:36.2728286+03:00"
+  },
+  "oDYSzB4O": {
+    "OrderId": "tTKLKKjB",
+    "OrderTableId": "20",
+    "OrderPersonnelWhoServedId": "222",
+    "OrderTableUsedSpaces": 3,
+    "OrderDrinkId": "hT6wg2MJ",
+    "OrderDrinkPriceWithVat": 0.01,
+    "OrderFoodId": "GuWjO67E",
+    "OrderFoodPriceWithVat": 2.42,
+    "OrderTotalPrice": 2.4299999999999997,
+    "OrderStartDateTime": "2024-04-23T19:35:40.6457894+03:00",
+    "OrderEndDateTime": "2024-04-23T19:35:43.1350267+03:00"
   }
 }
